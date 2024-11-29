@@ -111,17 +111,29 @@
 .childWrapper_f90abb.childWrapperNoHoverBg_f90abb {
     background-color: var(--primary-600);
 }
-/* discover icon */
+/* discover icon / footer fix */
 
-.gradient_aa1bff {
+.footer_d71945 {
     display: none;
 }
-.footer_aa1bff .gradient_aa1bff {
+/*
+.gradient_d71945 {
+    display: none;
+}
+.footer_d71945 .gradient_d71945,  .footer_d71945{
     background: var(--app-foreground);
 }
-div[aria-label="Servers"] {
-    margin-bottom: 20px;
+.footer_d71945 {
+    border-radius: var(--app-card-radius);
+    position: relative;
+    padding-top: 10px;
 }
+
+.scroller_fea3ef.none_c49869.scrollerBase_c49869 > div:nth-child(3) {
+    margin-bottom: 20px;
+    height: calc(100% + 20px);
+}
+    */
 /* fix members list thread border 
 .membersWrap_cbd271 {
     border-left: 1px solid var(--app-card-border-color);
