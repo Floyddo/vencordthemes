@@ -1,3 +1,4 @@
+@charset "UTF-8";
 /**
  * @name Spotify Discord
  * @version 2.0.0
@@ -9,6 +10,8 @@
  * @invite jzJkA6Ztestsaaaatesttest
  */
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/css/source.css);
+@import "BetterDiscord/Themes/Spotify-Discord/src/selectorPlaceholders";
+
 :root {
   --app-font: "Satoshi";
   --app-background: hsl(0, 0%, 0%);
@@ -102,17 +105,15 @@
       Courier,
       monospace;
 }
-
 /* discover icon / footer fix */
-.footer__214dc {
+%guildDiscoverFooter  {
   display: none;
 }
 
 /* murder channelAppLauncher */
-.channelAppLauncher_e6e74f {
-  display: none;
+%channelAppLauncher {
+    display: none;
 }
-
 /*
 .gradient_d71945 {
     display: none;
@@ -140,14 +141,14 @@
 .userProfileOuterUnthemed_c69a7b .userPanelInner_c69a7b  {
     background: linear-gradient(.525turn, var(--popout-color), hsl(271, 66%, 7%));
 } */
-.outer_c0bea0 {
+%userProfileOuter {
   border-radius: var(--card-radius) !important;
 }
 
-.banner__68edb {
+%userProfileBanner  {
   border-radius: var(--card-radius) !important;
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
-  mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
 /* full sized banner */
@@ -172,17 +173,17 @@
     mask-type:unset;
 }*/
 /* fix old message bar */
-.jumpToPresentBar__0f481 {
+%jumpToPresentBar {
   right: 16px;
   margin: 0px;
 }
 
 /* bot text diff color */
-.botTag__82f07 {
+%botTag {
   background-color: hsl(var(--accent-hsl));
 }
 
-.botText__82f07 {
+%botText {
   color: white;
 }
 
@@ -226,6 +227,7 @@
 .form_a7d72e {
     padding: 0 !important;
 }*/
+
 /* dots to show its end of channel list
 .content_eed6a8 > .containerDefault_f6f816:nth-last-child(1)::before,
 .content_eed6a8 > .containerDefault_f6f816:nth-last-child(1)::after {
@@ -252,8 +254,10 @@
   overflow: hidden;
   min-height: 676px;
 } */
+
 /* inverted border chat */
-.chatContent_f75fb0::after {
+%chatContent {
+  &::after {
   content: "";
   position: absolute;
   width: 3px;
@@ -263,24 +267,28 @@
   bottom: 0;
   right: 0;
   transform: translate(0px, 10px);
+  }
 }
 
-.chatContent_f75fb0::before {
+%chatContent{
+  &::before {
   content: "";
   position: absolute;
   width: 20px;
   height: 40px;
   background-color: transparent;
   /* Same as container's background color */
-}
+}}
 
-.chatContent_f75fb0::before {
+%chatContent{
+  &::before {
   bottom: 0;
   right: 0;
   border-radius: 0 20px 0 0;
   transform: translate(0px, 40px);
   box-shadow: 0 -10px 0 0 var(--app-foreground);
   /* This is where the magic happens! */
+}
 }
 
 /* discord logo rainbow on hover 
@@ -309,76 +317,79 @@
 .container_fb4810 {
   background: none !important;
 }*/
+
 /* danger color */
-#guild-context-leave-guild > .label_c1e9c4,
-[data-tab-id=logout], [data-tab-id=DELETE],
+#guild-context-leave-guild > %menuPopoutLabel,
+[data-tab-id="logout"],[data-tab-id="DELETE"],
 #user-context-block > .label_d90b3d,
-.colorDanger__5d2e7,
-.colorDanger_c1e9c4 .checkbox_c1e9c4,
-.colorDanger_c1e9c4 .radioSelection_c1e9c4, #user-context-remove-friend {
+%noticeDanger,
+%menuPopoutItemLeave  %menuPopoutCheckbox,
+%menuPopoutItemLeave %menuPopoutRadio, #user-context-remove-friend {
   color: hsl(var(--alert-hsl)) !important;
 }
 
 /* remove nitro gift from buttons in chat bar */
-.buttons__74017 > .button__201d5 {
+%channelTextAreaButtonsContainer > %button {
   display: none;
 }
 
 /* popout icons aint centered but are cus this*/
-.icon_fb7f94 {
+%userProfileIconButton {
   min-width: inherit !important;
 }
 
 /* makes the members list span the whole screen without header + thread, modview, etc other sidebars*/
-.container_c8ffbb, .membersWrap_c8ffbb, .searchResultsWrap_a9e706, .guildSidebar_b962dc {
+%membersContainer, %membersWrap, %searchResultsWrap, %rulesGuildSidebar {
   background-color: var(--app-foreground);
   height: calc(100% + 80px);
   max-height: none;
 }
 
-.outer_c0bea0, .chat_f75fb0:has(> .container__9293f), .chat_f75fb0:has(.container_f369db) {
+%userProfileOuter, %chat:has(> %headerBar), %chat:has(%forumContainer) {
   height: calc(100% + 75px);
   border-radius: 10px;
   max-height: none;
 }
 
 /* fixes tabs */
-.selected_b3f026, .item_b3f026:hover {
+%tabBarItemSelected, %guildSettingsRolesTabBarItem:hover {
   border-radius: 0px !important;
 }
 
-.item_b3f026 > .text-sm\/normal_cf4812 {
+%guildSettingsRolesTabBarItem > %textSmNormal {
   position: relative;
   top: -4px;
 }
 
 /* vencord tab fixes) */
-.vc-settings-donate > div > .button_dd4f85 {
-  margin: 15px;
-}
+    .vc-settings-donate > div > .button_dd4f85 {
+      margin: 15px;
+    }
 
-.vc-plugins-restart-card > button:hover {
-  transform: scale(1.03) !important;
-  background-color: red;
-}
+    .vc-plugins-restart-card > button:hover {
+      transform: scale(1.03) !important;
+      background-color: red;
+    }
 
 /* lines activity call and profile bottom left */
-.panels_c48ade {
+%panels {
   border-top: 1px solid var(--sidebar-panel-border) !important;
 }
 
-.activityPanel_c48ade {
+%activityPanel  {
   border-bottom: 1px solid var(--sidebar-panel-border) !important;
   position: relative;
   z-index: 2;
 }
 
-.wrapper_e131a9 { /* vc, override source*/
+%connectionPanelWrapper { /* vc, override source*/
   border-top: none !important;
 }
 
-.wrapper_e131a9:not(:empty) {
-  border-bottom: 1px solid var(--sidebar-panel-border);
+%connectionPanelWrapper {
+  &:not(:empty) {
+    border-bottom: 1px solid var(--sidebar-panel-border);
+  }
 }
 
 /*
@@ -406,88 +417,88 @@
     border-right: 0;
 }*/
 /* button color */
-.lookFilled__201d5 {
+%buttonFilled {
   --button-background: hsla(0,0%,11%,.3);
 }
 
 /* spotify controls */
-/* fix color */
-.vc-spotify-shuffle-on > .vc-spotify-button-icon, .vc-spotify-repeat-context > .vc-spotify-button-icon, .vc-spotify-repeat-track > .vc-spotify-button-icon, .vc-spotify-repeat-track > span {
-  fill: hsl(var(--accent-hsl));
-  color: hsl(var(--alert-hsl));
-}
+    /* fix color */
+    .vc-spotify-shuffle-on > .vc-spotify-button-icon, .vc-spotify-repeat-context > .vc-spotify-button-icon, .vc-spotify-repeat-track > .vc-spotify-button-icon, .vc-spotify-repeat-track > span {
+      fill: hsl(var(--accent-hsl));
+      color: hsl(var(--alert-hsl));
+    }
 
-#vc-spotify-info-wrapper {
-  width: 183px;
-}
+    #vc-spotify-info-wrapper {
+      width: 183px;
+    }
 
-.vc-spotify-button-row {
-  width: 65px;
-}
+    .vc-spotify-button-row {
+      width: 65px;
+    }
 
-.vc-spotify-button-row .vc-spotify-button:first-child {
-  position: relative;
-  left: 31px;
-  top: 21px;
-}
+    .vc-spotify-button-row .vc-spotify-button:first-child {
+      position: relative;
+      left: 31px;
+      top: 21px;
+    }
 
-.vc-spotify-button-row .vc-spotify-button:last-child {
-  position: relative;
-  left: -31px;
-  top: 21px;
-}
+    .vc-spotify-button-row .vc-spotify-button:last-child {
+      position: relative;
+      left: -31px;
+      top: 21px;
+    }
 
-/* Optional: Adjust button sizes  spotify */
-.vc-spotify-button {
-  width: 20px;
-  height: 20px;
-}
+    /* Optional: Adjust button sizes  spotify */
+    .vc-spotify-button {
+      width: 20px;
+      height: 20px;
+    }
 
-.vc-spotify-button-icon {
-  width: 20px;
-  height: 20px;
-}
+    .vc-spotify-button-icon {
+      width: 20px;
+      height: 20px;
+    }
 
-/* Optional: only hover show controls */
-#vc-spotify-player:hover #vc-spotify-info-wrapper {
-  width: 183px;
-  transition: width 0.3s ease-in-out;
-}
+    /* Optional: only hover show controls */
+    #vc-spotify-player:hover #vc-spotify-info-wrapper {
+      width: 183px;
+      transition: width 0.3s ease-in-out;
+    }
 
-#vc-spotify-player:hover .vc-spotify-button-row {
+    #vc-spotify-player:hover .vc-spotify-button-row {
+      display: none;
+      opacity: 1;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+    #vc-spotify-info-wrapper {
+      width: 245px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .vc-spotify-button-row {
+      display: flex;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
+
+%guildsAddServerContainer {
   display: none;
-  opacity: 1;
-  transition: opacity 0.3s ease-in-out;
 }
 
-#vc-spotify-info-wrapper {
-  width: 245px;
-  transition: width 0.3s ease-in-out;
-}
-
-.vc-spotify-button-row {
-  display: flex;
-  opacity: 0;
-  transition: opacity 0.3s ease-in-out;
-}
-
-.tutorialContainer__650eb {
-  display: none;
-}
-
-.tutorialContainer__650eb + .listItem__650eb {
+%guildsAddServerContainer + %guild {
   padding-top: 0;
 }
 
 /* fix for reply color */
-.mouse-mode.full-motion .message__5126c .replying__5126c:hover {
+%mouseModeFullMotion %message %replyingToIndicator:hover {
   background-color: hsla(var(--alert-hsl), 0.175);
 }
 
-.replying__5126c {
+%replyingToIndicator {
   background-color: hsla(var(--alert-hsl), 0.1);
 }
 
-.replying__5126c:before {
+%replyingToIndicator:before { 
   background-color: hsl(var(--alert-hsl));
-}/*# sourceMappingURL=Spotify-Discord.theme.css.map */
+}
