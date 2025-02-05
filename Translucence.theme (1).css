@@ -11,18 +11,43 @@
  */
 
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Translucence/css/source.css);
-
+.vc-spotify-repeat-track svg, .vc-spotify-repeat-context svg, .vc-spotify-shuffle-on svg {
+	fill: var(--interactive-active);
+}
+.vc-spotify-repeat-1 {
+	color: var(--interactive-active);
+}
+.barFill_a562c8 {
+	background-color: var(--interactive-muted)!important;
+}
 :root {
-	--app-bg: url(https://i.imgur.com/bgmVeyt.jpg);
-	--app-blur: 6px;
+	--app-bg: transparent;
+	--app-blur: 8px;
 	--app-margin: 24px;
 	--app-radius: 8px; /*	-	*/
 	
-	--accent-hue: 156;
-	--accent-saturation: 77.5%;
-	--accent-lightness: 47.1%;
-	--accent-opacity: 1;
-	--accent-text-color: #000; /*	-	*/
+		--app-font: "Satoshi";
+		--app-background: hsl(0, 0%, 0%);
+		--app-foreground: hsl(0, 0%, 7%);
+		--app-card-radius: 15px;
+		--app-card-margin: 8px;
+		--app-card-top-margin: 4px;
+		--app-card-border-color: hsl(0, 0%, 14%);
+		--app-bar-size: 80px;
+		--accent-hue: 2;
+		/* accent color (red) */
+		--accent-saturation: 0%;
+		--accent-lightness: 10%;
+		--accent-hsl: var(--accent-hue),
+			calc(var(--accent-saturation) * var(--saturation-factor)),
+			var(--accent-lightness);
+		--accent-text-color: hsl(0, 0%, 100%);
+		--alert-hue: 0;
+		--alert-saturation: 85%;
+		--alert-lightness: 61%;
+		--alert-hsl: var(--alert-hue),
+			calc(var(--alert-saturation) * var(--saturation-factor)),
+			var(--alert-lightness);
 
 	--sidebar-color: rgba(0,0,0,0.4);
 	--main-content-color: rgba(0,0,0,0.2); /*	-	*/
