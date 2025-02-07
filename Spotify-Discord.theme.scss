@@ -297,7 +297,7 @@
       transition: width 0.3s ease-in-out;
     }
 
-    #vc-spotify-player:hover .vc-spotify-button-row {
+    #vc-spotify-player:hover .vc-spotify-button-row { /* remove the :hover here to make it always visible */
       display: none;
       opacity: 1;
       transition: opacity 0.3s ease-in-out;
@@ -342,7 +342,7 @@
     margin-left: calc(var(--app-card-margin) * 2 + 44px);
   }
   #vc-spotify-album-image {
-    top: 10px;
+    top: 9px;
     left: 10px;
   }
   .vc-spotify-button-row {
@@ -355,8 +355,12 @@
   #vc-spotify-progress-bar{
     position: relative;
     left: -8px;
+    top: -4px;
   }
-
+  #vc-spotify-titles{
+  position: relative;
+  top: 1px;
+  }
 
 /** * ========== floyddo only fixes ==========*/
   /* remove annoying things */
