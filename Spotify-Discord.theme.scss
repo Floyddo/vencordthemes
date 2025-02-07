@@ -105,42 +105,17 @@
       Courier,
       monospace;
 }
-/* discover icon / footer fix */
-%guildDiscoverFooter  {
-  display: none;
+
+
+%guildChildWrapper {
+  &%guildChildWrapperNoHoverBg {
+      background-color: hsl(222.857 calc(1*6.667%) 15%); /* cahnge this to either a color so its not just black or transparent */
+      color: var(--accent-text-color);
+  }
 }
 
-/* murder channelAppLauncher */
-%channelAppLauncher {
-    display: none;
-}
-/*
-.gradient_d71945 {
-    display: none;
-}
-.footer_d71945 .gradient_d71945,  .footer_d71945{
-    background: var(--app-foreground);
-}
-.footer_d71945 {
-    border-radius: var(--app-card-radius);
-    position: relative;
-    padding-top: 10px;
-}
 
-.scroller_fea3ef.none_c49869.scrollerBase_c49869 > div:nth-child(3) {
-    margin-bottom: 20px;
-    height: calc(100% + 20px);
-}
-    */
-/* fix members list thread border 
-.membersWrap_cbd271 {
-    border-left: 1px solid var(--app-card-border-color);
-  }*/
-/* profile changes */
-/*
-.userProfileOuterUnthemed_c69a7b .userPanelInner_c69a7b  {
-    background: linear-gradient(.525turn, var(--popout-color), hsl(271, 66%, 7%));
-} */
+/* profile changes: banner gradient, corner */
 %userProfileOuter {
   border-radius: var(--card-radius) !important;
 }
@@ -151,31 +126,8 @@
           mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
 
-/* full sized banner */
-/*
-.banner_d5fdb1 {
-    mask-image: linear-gradient(to bottom left, black 0%, transparent 80%);
-}
-.mask_d5fdb1 {
-
-    transform: scale(1,6.9); transform-origin: top;  overflow: visible;  
-    } 
-.button_f9d37d.icon_f9d37d  {
-    background: var(--redesign-button-overlay-alpha-background)!important;
-}
-.body_a972fe {
-    z-index: 10;
-    position: relative;
-}
-.mask_d5fdb1 > foreignObject {
-    mask: none;
-    mask-image: none;
-    mask-type:unset;
-}*/
-/* fix old message bar */
-%jumpToPresentBar {
-  right: 16px;
-  margin: 0px;
+%buttonFilled {
+  --button-background: hsla(0,0%,11%,.3);
 }
 
 /* bot text diff color */
@@ -186,74 +138,6 @@
 %botText {
   color: white;
 }
-
-/* background spotify widget */
-/*
-#vc-spotify-player {
-    --panel-placement: calc(72px + calc(var(--app-card-margin) * 2));
-    position: absolute;
-    width: calc(240px + var(--panel-placement));
-    height: calc(var(--app-bar-size)-200px);
-    /* padding #vc-spotify-info-wrapper max-content fixes 200px *
-    left: calc((72px + var(--app-card-margin)* 2)* -1);
-    bottom: calc(var(--app-bar-size)* -1);
-    padding: 0 0 0 16px;
-    background: var(--app-foreground) !important;
-    border-bottom: none;
-    box-sizing: border-box;
-    border-radius: 0 var(--app-card-radius) 0 0;
-}
-
-#vc-spotify-info-wrapper {
-    margin-top: 1px !important;
-}
-
-#vc-spotify-progress-bar .sliderContainer_e13f88 {
-    width: calc(100% - 90px) !important;
-    margin: 0 auto;
-}
-
-.vc-spotify-time-right {
-    right: 7px !important;
-}
-
-.vc-spotify-button-row {
-    background-color: transparent !important;
-    top: 5px;
-}
-
-
-
-.form_a7d72e {
-    padding: 0 !important;
-}*/
-
-/* dots to show its end of channel list
-.content_eed6a8 > .containerDefault_f6f816:nth-last-child(1)::before,
-.content_eed6a8 > .containerDefault_f6f816:nth-last-child(1)::after {
-  content: "";
-  position: absolute;
-  width: 5px;
-  height: 5px;
-  background-color: var(--channels-default);
-  border-radius: 50%;
-  bottom: -20px;
-}
-
-.content_eed6a8 > .containerDefault_f6f816:nth-last-child(1)::before {
-  left: 50%;
-  transform: translateX(-10px);
-}
-
-.content_eed6a8 > .containerDefault_f6f816:nth-last-child(1)::after {
-  left: 50%;
-  transform: translateX(10px);
-}
-
-.content_eed6a8 {
-  overflow: hidden;
-  min-height: 676px;
-} */
 
 /* inverted border chat */
 %chatContent {
@@ -291,51 +175,14 @@
 }
 }
 
-/* discord logo rainbow on hover 
-.wrapper_f90abb:hover .childWrapper_f90abb,
-.wrapper_f90abb.selected_f90abb .childWrapper_f90abb {
-  background-image: url(https://discord.com/assets/e04a363312f4c489e8cf.webp);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
-.wrapper_f90abb .childWrapper_f90abb .selected_f90abb svg {
-  display: none;
-  background-color: none !important;
-}
-
-.wrapper_f90abb:hover .childWrapper_f90abb, .wrapper_f90abb.selected_f90abb .childWrapper_f90abb {
-  background-color: rgba(0, 0, 0, 0);
-}
-
-.wrapper_f90abb .childWrapper_f90abb > img {
-  content: none;
-  display: none;
-}
-
-.container_fb4810 {
-  background: none !important;
-}*/
-
 /* danger color */
 #guild-context-leave-guild > %menuPopoutLabel,
 [data-tab-id="logout"],[data-tab-id="DELETE"],
-#user-context-block > .label_d90b3d,
+#user-context-block > %menuPopoutLabel,
 %noticeDanger,
 %menuPopoutItemLeave  %menuPopoutCheckbox,
 %menuPopoutItemLeave %menuPopoutRadio, #user-context-remove-friend {
   color: hsl(var(--alert-hsl)) !important;
-}
-
-/* remove nitro gift from buttons in chat bar */
-%channelTextAreaButtonsContainer > %button {
-  display: none;
-}
-
-/* popout icons aint centered but are cus this*/
-%userProfileIconButton {
-  min-width: inherit !important;
 }
 
 /* makes the members list span the whole screen without header + thread, modview, etc other sidebars*/
@@ -371,6 +218,16 @@
       background-color: red;
     }
 
+/* forum post gradient color fix */
+%postTextContentFooter {
+  background: linear-gradient(
+    0deg,
+    var(--app-foreground),
+    color-mix(in srgb, var(--app-foreground), transparent 3%) 36px,
+    color-mix(in srgb, var(--app-foreground), transparent 60%)
+  )!important;
+}
+
 /* lines activity call and profile bottom left */
 %panels {
   border-top: 1px solid var(--sidebar-panel-border) !important;
@@ -392,34 +249,11 @@
   }
 }
 
-/*
 
 
-.activityPanel_a4d4d9 {
-    background: transparent !important;
-    border-bottom: 1px solid transparent;
-    border-image: linear-gradient(to right,
-            transparent 0%,
-            transparent 5%,
-            var(--card-border-color) 5%,
-            var(--card-border-color) 95%,
-            transparent 95%,
-            transparent 100%) 1;
-    border-image-source: linear-gradient(to right,
-            transparent 0%,
-            transparent 5%,
-            var(--card-border-color) 5%,
-            var(--card-border-color) 95%,
-            transparent 95%,
-            transparent 100%);
-    border-image-slice: 1; 
-    border-left: 0;
-    border-right: 0;
-}*/
-/* button color */
-%buttonFilled {
-  --button-background: hsla(0,0%,11%,.3);
-}
+
+
+
 
 /* spotify controls */
     /* fix color */
@@ -448,7 +282,6 @@
       top: 21px;
     }
 
-    /* Optional: Adjust button sizes  spotify */
     .vc-spotify-button {
       width: 20px;
       height: 20px;
@@ -459,7 +292,6 @@
       height: 20px;
     }
 
-    /* Optional: only hover show controls */
     #vc-spotify-player:hover #vc-spotify-info-wrapper {
       width: 183px;
       transition: width 0.3s ease-in-out;
@@ -481,24 +313,145 @@
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
+    #vc-spotify-player {
+      border-radius: 8px;
+      overflow: hidden;
+  width: calc(240px + var(--panel-placement) - 10px); /* Subtracting 5px from both left and right */
+  height: calc(var(--app-bar-size) - 10px); /* Subtracting 5px from top and bottom */
+  left: calc((72px + var(--app-card-margin) * 2) * -1 + 10px);
+  bottom: calc(var(--app-bar-size) * -1 + 5px);
+  }
+  #vc-spotify-player::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      /* COMMENT THIS PART FOR FOREGROUND NON IMAGE MODE */
+      background: var(--vc-spotify-track-image) center/cover no-repeat; 
+      filter: blur(3px) opacity(0.6);
+      /* COMMENT THIS PART FOR FOREGROUND NON IMAGE MODE */
+      background-color: var(--app-foreground);
+      border-radius: var(--app-card-radius);
+      z-index: -1;
+      overflow: hidden; /* Ensures blur doesn’t bleed outside */
+  }
+  #vc-spotify-info-wrapper {
+    margin-top: 4px;
+    margin-left: calc(var(--app-card-margin) * 2 + 44px);
+  }
+  #vc-spotify-album-image {
+    top: 10px;
+    left: 10px;
+  }
+  .vc-spotify-button-row {
+    background: none;
+    top: 6px;
+  }
+  #vc-spotify-button-icon {
+    fill: var(--text-normal);
+  }
+  #vc-spotify-progress-bar{
+    position: relative;
+    left: -8px;
+  }
 
-%guildsAddServerContainer {
-  display: none;
-}
 
-%guildsAddServerContainer + %guild {
-  padding-top: 0;
-}
+/** * ========== floyddo only fixes ==========*/
+  /* remove annoying things */
+  %channelTextAreaButtonsContainer > %button {/* remove nitro gift from buttons in chat bar */
+    display: none;
+  }
+  
+  %channelAppLauncher {
+    display: none;
+    
+  }
+  li a[href="/store"] { /* home > nitro */
+    display: none;
+  }
+  
+  li a[href="/shop"] { /* home > shop */
+    display: none;
+  }
 
-/* fix for reply color */
-%mouseModeFullMotion %message %replyingToIndicator:hover {
-  background-color: hsla(var(--alert-hsl), 0.175);
-}
+  %messagePopoverReactionHoverBar {
+    &:nth-child(1),
+    &:nth-child(2),
+    &:nth-child(3),
+    &:nth-child(4) {
+      display: none;
+    }
+  }
+  
+  %badgeListContainer>div:has(>a[href="https://discord.com/settings/premium"]), %badgeListContainer>div:has(>a[href="https://discord.com/discovery/quests"]) { /*https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png */
+    display: none;
+  }
+  /* line at activity half */
+  .activityPanel_a4d4d9 {
+    background: transparent !important;
+    border-bottom: 1px solid transparent;
+    border-image: linear-gradient(to right,
+            transparent 0%,
+            transparent 5%,
+            var(--card-border-color) 5%,
+            var(--card-border-color) 95%,
+            transparent 95%,
+            transparent 100%) 1;
+    border-image-source: linear-gradient(to right,
+            transparent 0%,
+            transparent 5%,
+            var(--card-border-color) 5%,
+            var(--card-border-color) 95%,
+            transparent 95%,
+            transparent 100%);
+    border-image-slice: 1; 
+    border-left: 0;
+    border-right: 0;
+  }
+  /* fix old message bar */
+  %jumpToPresentBar {
+    right: 16px;
+    margin: 0px;
+  }
+  /* fix for reply color */
+  %mouseModeFullMotion %message %replyingToIndicator:hover {
+    background-color: hsla(var(--alert-hsl), 0.175);
+  }
 
-%replyingToIndicator {
-  background-color: hsla(var(--alert-hsl), 0.1);
-}
+  %replyingToIndicator {
+    background-color: hsla(var(--alert-hsl), 0.1);
+  }
 
-%replyingToIndicator:before { 
-  background-color: hsl(var(--alert-hsl));
-}
+  %replyingToIndicator:before { 
+    background-color: hsl(var(--alert-hsl));
+  }
+  /* discover icon / footer fix */
+
+  %guildDiscoverFooter  {
+    display: none;
+  }
+
+  /* murder channelAppLauncher */
+  %channelAppLauncher {
+      display: none;
+  }
+  /* EXPERIMENTAL full sized banner */
+  /*
+  .banner_d5fdb1 {
+      mask-image: linear-gradient(to bottom left, black 0%, transparent 80%);
+  }
+  .mask_d5fdb1 {
+
+      transform: scale(1,6.9); transform-origin: top;  overflow: visible;  
+      } 
+  .button_f9d37d.icon_f9d37d  {
+      background: var(--redesign-button-overlay-alpha-background)!important;
+  }
+  .body_a972fe {
+      z-index: 10;
+      position: relative;
+  }
+  .mask_d5fdb1 > foreignObject {
+      mask: none;
+      mask-image: none;
+      mask-type:unset;
+  }*/
