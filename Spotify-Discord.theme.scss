@@ -313,27 +313,30 @@
       opacity: 0;
       transition: opacity 0.3s ease-in-out;
     }
+
+    /* making it a chip */
     #vc-spotify-player {
       border-radius: 8px;
       overflow: hidden;
-  width: calc(240px + var(--panel-placement) - 10px); /* Subtracting 5px from both left and right */
-  height: calc(var(--app-bar-size) - 10px); /* Subtracting 5px from top and bottom */
-  left: calc((72px + var(--app-card-margin) * 2) * -1 + 10px);
-  bottom: calc(var(--app-bar-size) * -1 + 5px);
-  }
-  #vc-spotify-player::before {
+      width: calc(240px + var(--panel-placement) - 10px);
+      height: calc(var(--app-bar-size) - 10px);
+      left: calc((72px + var(--app-card-margin) * 2) * -1 + 10px);
+      bottom: calc(var(--app-bar-size) * -1 + 5px);
+      clip-path: inset(0 round 8px); /* Zorgt ervoor dat alles binnen de border-radius blijft */
+    }
+    
+    #vc-spotify-player::before {
       content: "";
       position: absolute;
       inset: 0;
-      /* COMMENT THIS PART FOR FOREGROUND NON IMAGE MODE */
       background: var(--vc-spotify-track-image) center/cover no-repeat; 
       filter: blur(3px) opacity(0.6);
-      /* COMMENT THIS PART FOR FOREGROUND NON IMAGE MODE */
       background-color: var(--app-foreground);
-      border-radius: var(--app-card-radius);
+      border-radius: inherit; /* Zorgt ervoor dat de achtergrond dezelfde radius heeft */
       z-index: -1;
-      overflow: hidden; /* Ensures blur doesn’t bleed outside */
-  }
+    }
+    
+  /* repositioning for the chip to look good*/
   #vc-spotify-info-wrapper {
     margin-top: 4px;
     margin-left: calc(var(--app-card-margin) * 2 + 44px);
