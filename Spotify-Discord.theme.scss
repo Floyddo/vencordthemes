@@ -360,7 +360,9 @@
   %channelTextAreaButtonsContainer > %button {/* remove nitro gift from buttons in chat bar */
     display: none;
   }
-  
+  %messageHoverBarButton:has(.emoji), .separator_f84418 {
+    display: none;
+  }
   %channelAppLauncher {
     display: none;
     
@@ -373,14 +375,7 @@
     display: none;
   }
 
-  %messagePopoverReactionHoverBar {
-    &:nth-child(1),
-    &:nth-child(2),
-    &:nth-child(3),
-    &:nth-child(4) {
-      display: none;
-    }
-  }
+  
   
   %badgeListContainer>div:has(>a[href="https://discord.com/settings/premium"]), %badgeListContainer>div:has(>a[href="https://discord.com/discovery/quests"]) { /*https://cdn.discordapp.com/badge-icons/2ba85e8026a8614b640c2837bcdfe21b.png */
     display: none;
