@@ -13,6 +13,8 @@
 @import "BetterDiscord/Themes/Spotify-Discord/src/selectorPlaceholders";
 
 :root {
+
+
   --app-font: "Satoshi";
   --app-background: hsl(0, 0%, 0%);
   --app-foreground: hsl(0, 0%, 7%);
@@ -193,17 +195,28 @@
 %membersContainer,
 %membersWrap,
 %searchResultsWrap,
-%rulesGuildSidebar {
+%rulesGuildSidebar, %callWrapperNoChat{
+  
+  border-radius: var(--app-card-radius);
   background-color: var(--app-foreground);
-  height: calc(100% + 80px);
+  height: calc(100% + 71px)!important;
   max-height: none;
 }
 
-%userProfileOuter,
+%userProfileOuter {
+  height: calc(100% + 70px);
+  border-radius: 10px;
+  max-height: none;
+}
 %chat:has(> %headerBar),
 %chat:has(%forumContainer) {
-  height: calc(100% + 75px);
+  height: calc(99%);
   border-radius: 10px;
+  max-height: none;
+}
+
+%chatPage:has(%callWrapperNoChat)  {
+  height: calc(100% + 80px)!important;
   max-height: none;
 }
 
@@ -262,7 +275,9 @@
 
 
 
-
+%chatPage {
+  overflow: hidden;
+}
 
 /* spotify controls */
 /* fix color  */
@@ -276,9 +291,6 @@
 }
 
 // buttons & their background
-
-%visualRefresh {
-
   .vc-spotify-shuffle-on,
   .vc-spotify-repeat-context,
   .vc-spotify-repeat-track,
@@ -301,23 +313,17 @@
 
   .vc-spotify-button-row {
     position: absolute;
-    top: 4px;
-    left: 200px;
-  }
-
-  #vc-spotify-player {
-    position: relative !important;
+    top: -8px!important;
+    right: 5px;
   }
   /* experimental, disable above rule to work */
   %panels {
     %activityPanel, %accountPanel {
-      background-color: hsla(0,0,7%, 0.5)!important;
+      background-color: hsla(0,0%,7%, 0.5)!important;
     }
   }
-}
 
 /* background part */
-
 
 #vc-spotify-player::before {
   content: "";
@@ -342,6 +348,7 @@
 
 .vc-spotify-button-row {
   width: 65px;
+  background: none;
 }
 
 .vc-spotify-button-row .vc-spotify-button:first-child {
@@ -390,9 +397,11 @@
   transition: opacity 0.3s ease-in-out;
 }
 
+
+/*
 html:not(.visual-refresh) {
 
-  /* making it a chip */
+  /* making it a chip \*
   #vc-spotify-player {
     border-radius: 8px;
     overflow: hidden;
@@ -401,10 +410,10 @@ html:not(.visual-refresh) {
     left: calc((72px + var(--app-card-margin) * 2) * -1 + 10px);
     bottom: calc(var(--app-bar-size) * -1 + 5px);
     clip-path: inset(0 round 8px);
-    /* Zorgt ervoor dat alles binnen de border-radius blijft */
+    /* Zorgt ervoor dat alles binnen de border-radius blijft *
   }
 
-  /* repositioning for the chip to look good*/
+  /* repositioning for the chip to look good*
   #vc-spotify-info-wrapper {
     margin-top: 4px;
     margin-left: calc(var(--app-card-margin) * 2 + 44px);
@@ -434,7 +443,7 @@ html:not(.visual-refresh) {
     position: relative;
     top: 1px;
   }
-}
+}*/
 
 /** * ========== floyddo only fixes ==========*/
 /* remove annoying things */
@@ -449,7 +458,7 @@ html:not(.visual-refresh) {
 }
 
 %channelAppLauncher {
-  display: none;
+  display: none!important;
 
 }
 
