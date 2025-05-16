@@ -71,7 +71,7 @@
   --input-placeholder-color: hsl(0, 0%, 71%);
   --main-textarea-min-height: 48px;
   --main-textarea-radius: calc(var(--main-textarea-min-height) / 2);
-  --main-textarea-color: hsl(0, 0%, 14%);
+  --main-textarea-color: var(--app-foreground);
   --main-textarea-border-color: hsl(0, 0%, 20%);
   --main-textarea-text-color: hsl(0, 0%, 60%);
   --main-textarea-placeholder-color: hsl(0, 0%, 54%);
@@ -192,8 +192,8 @@
 }
 
 /* makes the members list span the whole screen without header + thread, modview, etc other sidebars*/
-%membersContainer,
-%membersWrap,
+%chat:not(:has(div[data-list-item-id^="forum"])) %membersContainer,
+%chat:not(:has(div[data-list-item-id^="forum"])) %membersWrap,
 %searchResultsWrap,
 %rulesGuildSidebar, %callWrapperNoChat{
   
@@ -202,7 +202,6 @@
   height: calc(100% + 71px)!important;
   max-height: none;
 }
-
 %userProfileOuter {
   height: calc(100% + 70px);
   border-radius: 10px;
@@ -210,9 +209,12 @@
 }
 %chat:has(> %headerBar),
 %chat:has(%forumContainer) {
-  height: calc(99%);
+  height: calc(99.92%);
   border-radius: 10px;
   max-height: none;
+}
+%searchResultsWrap {
+  background-color: var(--app-foreground)!important;
 }
 
 %chatPage:has(%callWrapperNoChat)  {
@@ -249,11 +251,12 @@
       color-mix(in srgb, var(--app-foreground), transparent 60%)) !important;
 }
 
-/* lines activity call and profile bottom left */
-%panels {
-  border-top: 1px solid var(--sidebar-panel-border) !important;
-}
 
+// lines fix for account panel
+%panels {
+  border-top: none!important;
+}
+/* lines activity call and profile bottom left */
 %activityPanel {
   border-bottom: 1px solid var(--sidebar-panel-border) !important;
   position: relative;
@@ -374,11 +377,11 @@
 }
 
 #vc-spotify-player:hover #vc-spotify-info-wrapper {
-  width: 183px!important;
+  width: calc(100% - 70px)!important;
   transition: width .3s ease-in-out;
 }
 #vc-spotify-info-wrapper {
-  width: 245px!important;
+  width: calc(100%)!important;
   transition: width .3s ease-in-out;
 }
 
