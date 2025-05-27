@@ -18,7 +18,7 @@
   --app-font: "Satoshi";
   --app-background: hsl(0, 0%, 0%);
   --app-foreground: hsl(0, 0%, 7%);
-  --app-card-radius: 15px;
+  --app-card-radius: 12px;
   --app-card-margin: 8px;
   --app-card-top-margin: 4px;
   --app-card-border-color: hsl(0, 0%, 14%);
@@ -335,10 +335,9 @@
   background: var(--vc-spotify-track-image) center/cover no-repeat;
   filter: blur(3px) opacity(0.6);
   background-color: var(--app-foreground);
-  border-radius: inherit;
   /* Zorgt ervoor dat de achtergrond dezelfde radius heeft */
   z-index: -1;
-  clip-path: inset(0 round 8px);
+  clip-path: inset(0 round var(--app-card-radius));
   /* Zorgt ervoor dat alles binnen de border-radius blijft */
 
 
