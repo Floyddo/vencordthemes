@@ -117,6 +117,20 @@
   }
 }
 
+/* spotify artist grey */
+.vc-spotify-secondary-song-info > span {
+  color: #b3b3b3;
+}
+
+/* profile bar remove name bc small ugly */
+%accountPanel {
+  %accountPanelNameTag {
+    %textMdMedium, %textXsMedium {
+    text-overflow: clip!important;
+  }
+}
+}
+
 
 /* profile changes: banner gradient, corner */
 %userProfileOuter {
@@ -192,8 +206,8 @@
 }
 
 /* makes the members list span the whole screen without header + thread, modview, etc other sidebars*/
-%chat:not(:has(div[data-list-item-id^="forum"])) %membersContainer,
-%chat:not(:has(div[data-list-item-id^="forum"])) %membersWrap,
+%chat:not(:has(.forumPostTitle_f75fb0)) %membersContainer,
+%chat:not(:has(.forumPostTitle_f75fb0)) %membersWrap,
 %searchResultsWrap,
 %rulesGuildSidebar, %callWrapperNoChat{
   
@@ -207,16 +221,15 @@
   border-radius: 10px;
   max-height: none;
 }
-%chat:has(> %headerBar),
+%chat:has(.forumPostTitle_f75fb0),
 %chat:has(%forumContainer) {
-  height: calc(99.92%);
+  height: calc(99.92%)!important;
   border-radius: 10px;
   max-height: none;
 }
 %searchResultsWrap {
   background-color: var(--app-foreground)!important;
 }
-
 %chatPage:has(%callWrapperNoChat)  {
   height: calc(100% + 80px)!important;
   max-height: none;
@@ -471,12 +484,12 @@ html:not(.visual-refresh) {
 
 }
 
-li a[href="/store"] {
+div:has(>li > div >a[href="/store"]), li a[href="/store"], div li a[href="/store"] {
   /* home > nitro */
   display: none;
 }
 
-li a[href="/shop"] {
+div:has(>li > div > a[href="/shop"]), li a[href="/shop"], div li a[href="/shop"] {
   /* home > shop */
   display: none;
 }
