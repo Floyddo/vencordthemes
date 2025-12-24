@@ -20,11 +20,11 @@
    3. When you git pull in BetterDiscord, only _classes.scss will update
 
    4. Reference variables using SCSS interpolation syntax:
-      #{ $variableName }
+      #{ \$VariableName }
 
    STYLE GUIDE
    -----------
-   - Use #{ $className } for imported Discord class variables from _classes.scss
+   - Use #{ \$className } for imported Discord class variables from _classes.scss
    - Hardcoded Discord classes (._xxx-xxx) require `REQUIRES MANUAL UPDATING` comment
    - Use semantic CSS custom properties (--*) for theming values
    - Keep sections organized with header comments
@@ -74,7 +74,6 @@
 
 @import "BetterDiscord/Themes/Material-Discord/src/_classes.scss";
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/css/source.css);
-
 
 /* ==========================================================================
    CSS VARIABLES
@@ -608,7 +607,8 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
    BUTTONS & COMPONENTS
    ========================================================================== */
 
-/* Button filled styling */
+
+/* Button filled styling profile */
 #{ $buttonFilled } {
   --button-background: hsla(0, 0%, 11%, .3);
 }
@@ -638,6 +638,21 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 //   position: relative;
 //   top: -4px;
 // }
+
+/* search bar input styled instead of button */
+#{ $privateChannelsSearchBar } > button {
+  padding: 0 8px!important;
+  background-color: var(--input-background-default) !important;
+  border: 1px solid var(--input-border-default) !important;
+  color: var(--text-default) !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  font-size: 22px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
 
 /* Vencord tabs */
 .vc-settings-donate>div>.button_dd4f85 { /* REQUIRES MANUAL UPDATING */
