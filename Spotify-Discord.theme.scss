@@ -258,7 +258,7 @@ filter: blur(3px);
 
 
 /* Channel app launcher */
-#{ $channelAppLauncherButtonContainer }, ._740174f3d6a2c8fe-spacer { /* REQUIRES MANUAL UPDATING */
+#{ $channelAppLauncherButtonContainer }, [class*="-spacer"] { /* REQUIRES MANUAL UPDATING */
   display: none!important;
 }
 
@@ -266,6 +266,21 @@ filter: blur(3px);
 span[class*="clanTag"] {
     display: none;
 }
+
+/* Remove emoijs in quickbar message reactions */
+#{ $messageButtonWrapper } > span:has(#{ $embedEmoji }) { 
+  display: none;
+}
+
+/* Remove separator in message button wrapper */
+#{ $messageButtonWrapper } > [class*="separator"] { /* REQUIRES MANUAL UPDATING */
+  display: none;
+}
+
+
+
+
+
 ////// covered in DECOMMERCIALIZE
 // /* Quest elements */
 // %panels %questPanelMask,
@@ -601,7 +616,6 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
       color-mix(in srgb, var(--app-foreground), transparent 3%) 36px,
       color-mix(in srgb, var(--app-foreground), transparent 60%)) !important;
 }
-
 
 /* ==========================================================================
    BUTTONS & COMPONENTS
