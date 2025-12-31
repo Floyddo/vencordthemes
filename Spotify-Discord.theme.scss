@@ -683,6 +683,11 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
    SPOTIFY CONTROLS (VENCORD PLUGIN)
    ========================================================================== */
 
+/* bar color */
+ #vc-spotify-progress-bar #{ $sliderBarFill} {
+  background-color: #888888;
+ }
+
 /* Spotify artist text color */
 .vc-spotify-secondary-song-info > span {
   color: #b3b3b3;
