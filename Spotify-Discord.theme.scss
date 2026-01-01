@@ -241,7 +241,7 @@ li:has(div[class*=hasPremium]) {
 
 /* Hide premium nameplate decorations */
 img[src*=collectibles],
-div[style*=linear-gradient] {
+#{ $member} div[style*=linear-gradient] {
   display: none;
 }
 
