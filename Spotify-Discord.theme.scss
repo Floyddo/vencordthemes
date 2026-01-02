@@ -210,41 +210,31 @@
 /* Hide store, shop, and quest links in friends list */
 li > div:has(a[href="/store"]),
 li > div:has(a[href="/shop"]),
-li > div:has(a[href="/quest-home"]),
-div[aria-label="Send a gift"] {
+li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
-/* Hide premium profile decorations and effects */
-svg[class*=avatarDecoration],
-img[class*=avatarDecoration],
-div[class*=profileEffects] {
+// /* Hide premium profile decorations and effects */
+#{$avatarDecoration}, #{$avatarStatusDecoration} {
   display: none;
 }
 
-/* Hide premium upsells in user settings */
-div[class*=container__]:has(h2[class*=extrabold_]),
-div[class*=upsell],
-div[class*=premium] {
-  display: none;
-}
-
-/* Hide premium avatar selection in user settings */
-li:has(div[class*=hasPremium]) {
-  display: none;
-}
-
-/* Remove blank space from hidden premium avatar option */
-.optionsList_edf440 { /* REQUIRES MANUAL UPDATING */
-  grid-template-columns: none;
-}
 
 /* Hide premium nameplate decorations */
-img[src*=collectibles],
-#{ $member} div[style*=linear-gradient] {
-  display: none;
+#{ $memberNameplated }, #{$privateChannelDm}  {
+    #{ $memberGradientContainer } {
+        background: none !important;
+    }
+
+    #{ $memberVideoContainer } {
+        display: none;
+    }
 }
 
+/* Hide profile effects */
+#{$userProfileInner} > [class*="profileEffects"] { /* REQUIRES MANUAL UPDATING */
+  display: none;
+}
 
 /* ==========================================================================
    DISCORD UI REMOVALS
@@ -256,15 +246,16 @@ backdrop-filter: none;
 filter: blur(3px);
 }
 
-
 /* Channel app launcher */
-#{ $channelAppLauncherButtonContainer }, [class*="-spacer"] { /* REQUIRES MANUAL UPDATING */
-  display: none!important;
+#{ $channelTextAreaButtonsContainer } :nth-child(7),
+#{ $channelTextAreaButtonsContainer } :nth-child(5),
+#{ $channelAppLauncherButtonContainer} {
+  display: none;
 }
 
-/* hides clan tags, nameplates, and avatar decorations */
-span[class*="clanTag"] {
-    display: none;
+/* hides clan tags */
+#{$guildChatChipletContainerInner} {
+  display: none;
 }
 
 /* Remove emoijs in quickbar message reactions */
