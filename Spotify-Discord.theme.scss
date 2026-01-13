@@ -232,7 +232,7 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Hide profile effects */
-#{$userProfileInner} > [class*="profileEffects"] { /* REQUIRES MANUAL UPDATING */
+#{$userProfileEffects} { 
   display: none;
 }
 
@@ -240,8 +240,29 @@ li > div:has(a[href="/quest-home"]) {
    DISCORD UI REMOVALS
    ========================================================================== */
 
+
+/* remove nitro badge */
+#{$badgeListContainer} > div:has(>div> a[href="https://discord.com/settings/premium"]) {
+  display: none;
+}
+
+/* remove boosting badge from profile */
+#{$badgeListContainer} > a[href="https://discord.com/settings/premium"] {
+  display: none;
+}
+
+/* remove quest completed badge */
+#{$badgeListContainer} > a[href="https://discord.com/discovery/quests"] {
+  display: none;
+}
+
+/* remove quests orb badge */
+#{$badgeListContainer} > a[aria-label="Collected the Orb Profile Badge"] {
+  display: none;
+}
+
 /* Remove laggy backdrop blur from full screen user profile*/
-._9c3bea41fd465666-backgroundImage::after { /* REQUIRES MANUAL UPDATING */
+#{$userProfileModalBackgroundImage}::after {
 backdrop-filter: none;
 filter: blur(3px);
 }
@@ -377,19 +398,19 @@ filter: blur(3px);
 
 #{ $guildFolderWrapper }[style$='#992d22;'] { /* Apps folder */
   #{ $guildFolderPreviewWrapper }::before {
-    mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/dashboard/sharp.svg);
+    mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/dashboard/round.svg);
   }
 }
 
 #{ $guildFolderWrapper }[style$='#ad1457;'] { /* My servers folder */
   #{ $guildFolderPreviewWrapper }::before {
-    mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/engineering/sharp.svg);
+    mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/engineering/round.svg);
   }
 }
 
 #{ $guildFolderWrapper }[style$='#71368a;'] { /* Roblox folder */
   #{ $guildFolderPreviewWrapper }::before {
-    mask-image: url(https://raw.githubusercontent.com/simple-icons/simple-icons/be23679deda9e227ded614e94a1dc262ff930cf1/icons/roblox.svg); 
+    mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/sports_esports/round.svg); 
   }
 }
 
@@ -489,7 +510,7 @@ filter: blur(3px);
    ========================================================================== */
 
 /* Profile - Modal layout */
-.c0bea05627c5dc35-inner { /* REQUIRES MANUAL UPDATING */
+#{ $userProfileInner } {
   padding-block: unset!important;
   padding-inline: unset!important;
 }
@@ -660,9 +681,6 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 }
 
 /* Vencord tabs */
-.vc-settings-donate>div>.button_dd4f85 { /* REQUIRES MANUAL UPDATING */
-  margin: 15px;
-}
 
 .vc-plugins-restart-card>button:hover {
   transform: scale(1.03) !important;
