@@ -396,19 +396,19 @@ filter: blur(3px);
    Material icons: https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/NAME/TYPE.svg
    Types: baseline, outline, round, sharp, twotone */
 
-#{ $guildFolderWrapper }[style$='#992d22;'] { /* Apps folder */
+#{ $guildFolderWrapper }[style$='#992d22;'] /* Apps folder */ { 
   #{ $guildFolderPreviewWrapper }::before {
     mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/dashboard/round.svg);
   }
 }
 
-#{ $guildFolderWrapper }[style$='#ad1457;'] { /* My servers folder */
+#{ $guildFolderWrapper }[style$='#ad1457;'] /* My servers folder */ { 
   #{ $guildFolderPreviewWrapper }::before {
     mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/engineering/round.svg);
   }
 }
 
-#{ $guildFolderWrapper }[style$='#71368a;'] { /* Roblox folder */
+#{ $guildFolderWrapper }[style$='#71368a;'] /* Roblox folder */ { 
   #{ $guildFolderPreviewWrapper }::before {
     mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/sports_esports/round.svg); 
   }
@@ -488,7 +488,14 @@ filter: blur(3px);
   }
 }
 
+
 /* Sidebars - members list, search results, rules, call wrapper */
+
+/* fix scrollbar in chat having way too much min height */
+#{ $messagesScroller }::-webkit-scrollbar-track {
+    margin: 5px;
+}
+
 #{ $chat }:not(:has(.forumPostTitle_f75fb0)) #{ $membersContainer },
 #{ $chat }:not(:has(.forumPostTitle_f75fb0)) #{ $membersWrap },
 #{ $searchResultsWrap },
