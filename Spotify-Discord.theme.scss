@@ -268,9 +268,8 @@ backdrop-filter: none;
 filter: blur(3px);
 }
 
-/* Channel app launcher */
- #{ $channelTextAreaButtonsContainer } :nth-child(7), // nitro gift button in text area
-#{ $channelTextAreaButtonsContainer } :nth-child(5), // sticker button
+/* textarea buttons */
+ #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // nitro gift button in text area
 #{ $channelAppLauncherButtonContainer} {
   display: none;
 }

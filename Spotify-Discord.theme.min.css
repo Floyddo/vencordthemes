@@ -237,9 +237,8 @@ li > div:has(a[href="/quest-home"]) {
   filter: blur(3px);
 }
 
-/* Channel app launcher */
-.buttons__74017 :nth-child(7),
-.buttons__74017 :nth-child(5),
+/* textarea buttons */
+.buttons__74017 > .button__74017.button__24af7,
 .buttonContainer_e6e74f {
   display: none;
 }
@@ -255,7 +254,7 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Remove separator in message button wrapper */
-.wrapper_f7ecac > .separator_f84418 { /* REQUIRES MANUAL UPDATING */
+.wrapper_f7ecac > .separator_f84418 {
   display: none;
 }
 
