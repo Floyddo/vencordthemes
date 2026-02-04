@@ -286,7 +286,7 @@ filter: blur(3px);
 }
 
 /* Remove separator in message button wrapper */
-#{ $messageButtonWrapper } > .separator_f84418 { /* REQUIRES MANUAL UPDATING */
+#{ $messageButtonWrapper } > #{ $messageButtonSeparator } {
   display: none;
 }
 
@@ -497,7 +497,7 @@ filter: blur(3px);
     margin: 5px;
 }
 
-#{ $chat }:not(:has(.forumPostTitle_f75fb0)) #{ $membersContainer },
+#{ $chat }:not(:has(#{ $threadsPopoutPostTitle })) #{ $membersContainer },
 #{ $chat } #{ $membersWrap },
 #{ $searchResultsWrap },
 #{ $rulesGuildSidebar },
@@ -509,7 +509,7 @@ filter: blur(3px);
   max-height: none;
 }
 
-.container__49668, /* REQUIRES MANUAL UPDATING */
+#{ $serverShopContainer },
 #{ $chat }:has(#{ $channelsAndRolesContainer }){
   height: 100%!important;
 }
@@ -562,7 +562,7 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
   overflow: hidden;
 }
 
-#{ $chat }:has(.forumPostTitle_f75fb0), /* forum post sizing */
+#{ $chat }:has(#{ $threadsPopoutPostTitle }), /* forum post sizing */
 #{ $chat }:has(#{ $forumContainer }) {
   height: calc(99.92%)!important;
   border-radius: 10px;
