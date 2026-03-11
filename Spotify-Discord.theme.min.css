@@ -210,6 +210,11 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
+/* remove close button full screen profile */
+.inner_c0bea0 > div > .button_a22cb0 {
+  display: none;
+}
+
 /* remove nitro badge */
 .container__8061a > div:has(> div > a[href="https://discord.com/settings/premium"]) {
   display: none;
@@ -232,13 +237,13 @@ li > div:has(a[href="/quest-home"]) {
 
 /* Remove laggy backdrop blur from full screen user profile*/
 .backgroundImage__9c3be::after {
-  -webkit-backdrop-filter: none;
-          backdrop-filter: none;
+  backdrop-filter: none;
   filter: blur(3px);
 }
 
 /* textarea buttons */
 .buttons__74017 > .button__74017.button__24af7,
+.container_c0c49a,
 .buttonContainer_e6e74f {
   display: none;
 }
@@ -396,6 +401,11 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    USER PROFILE STYLING
    ========================================================================== */
+/* note margin */
+.profileBody__9c3be userProfileModalSection > div > textarea {
+  margin: 5px;
+}
+
 /* Profile - Modal layout */
 .inner_c0bea0 {
   padding-block: unset !important;

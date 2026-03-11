@@ -240,7 +240,10 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
-
+/* remove close button full screen profile */
+#{$userProfileInner} > div > #{$buttonV2} {
+  display: none;
+}
 
 /* remove nitro badge */
 #{$badgeListContainer} > div:has(>div> a[href="https://discord.com/settings/premium"]) {
@@ -269,7 +272,8 @@ filter: blur(3px);
 }
 
 /* textarea buttons */
- #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // nitro gift button in text area
+ #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // OLD nitro gift button in text area
+ .container_c0c49a,
 #{ $channelAppLauncherButtonContainer} {
   display: none;
 }
@@ -527,6 +531,12 @@ filter: blur(3px);
 /* ==========================================================================
    USER PROFILE STYLING
    ========================================================================== */
+
+   /* note margin */
+#{$userProfileModalV2ProfileBody} #{userProfileModalSection} > div > textarea {
+  margin: 5px;
+}
+
 
 /* Profile - Modal layout */
 #{ $userProfileInner } {
