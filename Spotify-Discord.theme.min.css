@@ -422,7 +422,7 @@ li > div:has(a[href="/quest-home"]) {
   border-radius: var(--card-radius) !important;
 }
 
-.layer_bc663c > div > div > div > div > div:not(.outer_c0bea0) {
+.layoutContainer__9c3be > div:not(.outer_c0bea0) {
   display: none;
 }
 
@@ -578,6 +578,22 @@ aside .outer_c0bea0 { /* profile in sidebar */
 .vc-plugins-restart-card > button:hover {
   transform: scale(1.03) !important;
   background-color: red;
+}
+
+/* ==========================================================================
+   Listening along
+   ========================================================================== */
+.listeningAlong_e0cf27 {
+  background-color: var(--app-foreground);
+  border-radius: var(--card-radius);
+  border-bottom: 1px solid var(--card-border-color);
+  border-bottom: 1px solid transparent;
+  -o-border-image: linear-gradient(to right, transparent 0%, transparent 3%, var(--card-border-color) 3%, var(--card-border-color) 97%, transparent 97%, transparent 100%) 1;
+     border-image: linear-gradient(to right, transparent 0%, transparent 3%, var(--card-border-color) 3%, var(--card-border-color) 97%, transparent 97%, transparent 100%) 1;
+  border-image-source: linear-gradient(to right, transparent 0%, transparent 3%, var(--card-border-color) 3%, var(--card-border-color) 97%, transparent 97%, transparent 100%);
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
 }
 
 /* ==========================================================================

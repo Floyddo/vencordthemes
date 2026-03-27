@@ -72,7 +72,7 @@
    IMPORTS
    ========================================================================== */
 
-@import "BetterDiscord/Themes/Material-Discord/src/_classes.scss";
+@use "BetterDiscord/Themes/Material-Discord/src/_classes.scss" as *;
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/css/source.css);
 
 /* ==========================================================================
@@ -553,7 +553,7 @@ filter: blur(3px);
     height: 90vh;
     border-radius: var(--card-radius) !important;
 }
-#{$popoutLayerAlt }  > div > div > div > div > div:not(#{$userProfileOuter}) {
+.layoutContainer__9c3be  > div:not(#{$userProfileOuter}) {
   display: none;
 }
 
@@ -736,6 +736,32 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
   background-color: red;
 }
 
+/* ==========================================================================
+   Listening along
+   ========================================================================== */
+.listeningAlong_e0cf27 {
+  background-color: var(--app-foreground);
+  border-radius: var(--card-radius);
+  border-bottom: 1px solid  var(--card-border-color);
+   border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right,
+      transparent 0%,
+      transparent 3%,
+      var(--card-border-color) 3%,
+      var(--card-border-color) 97%,
+      transparent 97%,
+      transparent 100%) 1;
+  border-image-source: linear-gradient(to right,
+      transparent 0%,
+      transparent 3%,
+      var(--card-border-color) 3%,
+      var(--card-border-color) 97%,
+      transparent 97%,
+      transparent 100%);
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
+}
 
 /* ==========================================================================
    SPOTIFY CONTROLS (VENCORD PLUGIN)
