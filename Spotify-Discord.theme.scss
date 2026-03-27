@@ -233,10 +233,10 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Hide profile effects */
-#{$userProfileEffects} { 
+#{$userProfileEffects}, .profileEffects__0dd08 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
-#{$memberNameplated}:has(video) {
+#{$memberNameplated}>.container_df39b2 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
@@ -276,7 +276,7 @@ filter: blur(3px);
 
 /* textarea buttons */
  #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // OLD nitro gift button in text area
- .container_c0c49a,
+ .container_c0c49a, /* Requires manual updating: new nitro gift button in text area, may break with updates */
 #{ $channelAppLauncherButtonContainer} {
   display: none;
 }
@@ -535,6 +535,7 @@ filter: blur(3px);
    USER PROFILE STYLING
    ========================================================================== */
 
+
    /* note margin */
 #{$userProfileModalV2ProfileBody} #{userProfileModalSection} > div > textarea {
   margin: 5px;
@@ -556,7 +557,7 @@ filter: blur(3px);
   display: none;
 }
 
-#{$popoutLayerAlt } > div > div > div, #{$popoutLayerAlt } > div > div> div >div,  #{$popoutLayerAlt} #{$userProfileOuter}{
+#{$popoutLayerAlt }:has(#{$userProfileOuter}) > div > div > div, #{$popoutLayerAlt}:has(#{$userProfileInner}) > div > div> div >div,  #{$popoutLayerAlt} #{$userProfileOuter}{
   height: 100%;
 }
 
@@ -580,7 +581,6 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
 }
-
 
 /* ==========================================================================
    CHAT & MESSAGING

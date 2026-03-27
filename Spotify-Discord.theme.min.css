@@ -203,11 +203,11 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Hide profile effects */
-.profileEffects__01370 {
+.profileEffects__0dd08, .profileEffects__0dd08 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
-.nameplated__91a9d:has(video) {
+.nameplated__91a9d > .container_df39b2 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
@@ -426,7 +426,7 @@ li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
-.layer_bc663c > div > div > div, .layer_bc663c > div > div > div > div, .layer_bc663c .outer_c0bea0 {
+.layer_bc663c:has(.outer_c0bea0) > div > div > div, .layer_bc663c:has(.inner_c0bea0) > div > div > div > div, .layer_bc663c .outer_c0bea0 {
   height: 100%;
 }
 
