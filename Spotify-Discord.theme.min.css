@@ -207,6 +207,10 @@ li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
+.nameplated__91a9d:has(video) {
+  display: none;
+}
+
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
@@ -412,14 +416,33 @@ li > div:has(a[href="/quest-home"]) {
   padding-inline: unset !important;
 }
 
-.outer_c0bea0 {
+/* profile fixes: fullscreen, border etc */
+.layer_bc663c > div > div { /* fullscreen profile popout layout */
+  height: 90vh;
   border-radius: var(--card-radius) !important;
 }
 
+.layer_bc663c > div > div > div > div > div:not(.outer_c0bea0) {
+  display: none;
+}
+
+.layer_bc663c > div > div > div, .layer_bc663c > div > div > div > div, .layer_bc663c .outer_c0bea0 {
+  height: 100%;
+}
+
 aside .outer_c0bea0 { /* profile in sidebar */
+  border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);
   border-radius: 10px;
   max-height: none;
+}
+
+.profile__9c3be {
+  border-radius: var(--card-radius) !important;
+}
+
+.inner_c0bea0 > div:not(.none_d125d2) > div {
+  border-radius: 0 0 var(--card-radius) var(--card-radius) !important;
 }
 
 /* Profile - Banner styling */

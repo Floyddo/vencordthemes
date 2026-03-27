@@ -236,6 +236,9 @@ li > div:has(a[href="/quest-home"]) {
 #{$userProfileEffects} { 
   display: none;
 }
+#{$memberNameplated}:has(video) {
+  display: none;
+}
 
 /* ==========================================================================
    DISCORD UI REMOVALS
@@ -544,18 +547,35 @@ filter: blur(3px);
   padding-inline: unset!important;
 }
 
-#{ $userProfileOuter } {
-  border-radius: var(--card-radius) !important;
+/* profile fixes: fullscreen, border etc */
+#{$popoutLayerAlt } > div > div { /* fullscreen profile popout layout */
+    height: 90vh;
+    border-radius: var(--card-radius) !important;
+}
+#{$popoutLayerAlt }  > div > div > div > div > div:not(#{$userProfileOuter}) {
+  display: none;
+}
+
+#{$popoutLayerAlt } > div > div > div, #{$popoutLayerAlt } > div > div> div >div,  #{$popoutLayerAlt} #{$userProfileOuter}{
+  height: 100%;
 }
 
 aside #{ $userProfileOuter } { /* profile in sidebar */
+  border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);
   border-radius: 10px;
   max-height: none;
 }
 
+#{$userProfileModalV2Profile} {
+  border-radius: var(--card-radius) !important;
+}
+#{$userProfileInner}  > div:not(#{$scrollbarNone}) > div {
+  border-radius: 0 0 var(--card-radius) var(--card-radius) !important;
+}
+
 /* Profile - Banner styling */
-#{ $userProfileBanner } {
+#{ $userProfileBanner }  {
   border-radius: var(--card-radius) !important;
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
