@@ -417,7 +417,7 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* profile fixes: fullscreen, border etc */
-.layer_bc663c > div > div { /* fullscreen profile popout layout */
+.layer_bc663c > div > div:has(> div > div > .outer_c0bea0) { /* fullscreen profile popout layout */
   height: 90vh;
   border-radius: var(--card-radius) !important;
 }
@@ -426,7 +426,7 @@ li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
-.layer_bc663c:has(.outer_c0bea0) > div > div > div, .layer_bc663c:has(.inner_c0bea0) > div > div > div > div, .layer_bc663c .outer_c0bea0 {
+.layer_bc663c > div > div > div:has(.outer_c0bea0), .layer_bc663c:has(.inner_c0bea0) > div > div > div > div, .layer_bc663c .outer_c0bea0 {
   height: 100%;
 }
 

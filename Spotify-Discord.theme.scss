@@ -275,8 +275,8 @@ filter: blur(3px);
 }
 
 /* textarea buttons */
- #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // OLD nitro gift button in text area
- .container_c0c49a, /* Requires manual updating: new nitro gift button in text area, may break with updates */
+ #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // Current nitro gift button in text area
+ .container_c0c49a, /* Requires manual updating: A/B nitro gift button in text area, may break with updates */
 #{ $channelAppLauncherButtonContainer} {
   display: none;
 }
@@ -549,7 +549,7 @@ filter: blur(3px);
 }
 
 /* profile fixes: fullscreen, border etc */
-#{$popoutLayerAlt } > div > div { /* fullscreen profile popout layout */
+#{$popoutLayerAlt } > div > div:has(>div>div>#{$userProfileOuter}) { /* fullscreen profile popout layout */
     height: 90vh;
     border-radius: var(--card-radius) !important;
 }
@@ -557,7 +557,7 @@ filter: blur(3px);
   display: none;
 }
 
-#{$popoutLayerAlt }:has(#{$userProfileOuter}) > div > div > div, #{$popoutLayerAlt}:has(#{$userProfileInner}) > div > div> div >div,  #{$popoutLayerAlt} #{$userProfileOuter}{
+#{$popoutLayerAlt } > div > div > div:has(#{$userProfileOuter}), #{$popoutLayerAlt}:has(#{$userProfileInner}) > div > div> div >div,  #{$popoutLayerAlt} #{$userProfileOuter}{
   height: 100%;
 }
 
