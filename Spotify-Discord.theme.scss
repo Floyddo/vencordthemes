@@ -243,6 +243,11 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
+  
+/* hide ignored users */
+#{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {
+  display: none;
+}
 /* remove close button full screen profile */
 #{$userProfileInner} > div > #{$buttonV2} {
   display: none;
@@ -282,8 +287,8 @@ filter: blur(3px);
 }
 
 /* hides clan tags */
-#{$guildChatChipletContainerInner} {
-  display: none;
+#{$guildChatChipletContainerInner}  {
+  display: none!important;
 }
 
 /* Remove emoijs in quickbar message reactions */

@@ -203,7 +203,7 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Hide profile effects */
-.profileEffects__0dd08, .profileEffects__0dd08 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+.profileEffects__01370, .profileEffects__0dd08 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
@@ -214,6 +214,11 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
+/* hide ignored users */
+.groupStart__5126c:has(.blockedSystemMessage__7a70a) {
+  display: none;
+}
+
 /* remove close button full screen profile */
 .inner_c0bea0 > div > .button_a22cb0 {
   display: none;
@@ -254,7 +259,7 @@ li > div:has(a[href="/quest-home"]) {
 
 /* hides clan tags */
 .chipletContainerInner__10651 {
-  display: none;
+  display: none !important;
 }
 
 /* Remove emoijs in quickbar message reactions */
