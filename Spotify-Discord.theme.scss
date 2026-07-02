@@ -208,6 +208,33 @@
     The original uses very laggy things so dont use the original code
    ========================================================================== */
 
+
+/* hide full screen profile editing tab */
+#profile-modal-editing-panel {
+  display: none;
+}
+@media (min-width: 929px) {
+    .layoutContainer__9c3be.editingPanelExpanded__9c3be { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+        --custom-modal-v2-width: 962px;
+        --custom-modal-v2-max-width: calc(100vw - var(--space-48) * 2);
+        --custom-modal-v2-profile-width: min(max(300px, calc(45.5vw - var(--space-48) * 0.91)), 400px);
+        grid-template-columns: 0 1fr;
+    }
+}
+
+@media (min-width: 1169px) {
+    .layoutContainer__9c3be.editingPanelExpanded__9c3be { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+        --custom-modal-v2-width: 962px;
+        --custom-modal-v2-max-width: calc(100vw - var(--space-48) * 2);
+        --custom-modal-v2-profile-width: min(max(300px, calc(45.5vw - var(--space-48) * 0.91)), 400px);
+        grid-template-columns: 0 1fr;
+    }
+}
+
+  /* hide promoted game tag */ 
+#{$activeNowQuestWrapper} {
+  display: none;
+}
 /* Hide store, shop, and quest links in friends list */
 li > div:has(a[href="/store"]),
 li > div:has(a[href="/shop"]),
@@ -245,7 +272,7 @@ li > div:has(a[href="/quest-home"]) {
    ========================================================================== */
   
 /* hide ignored users */
-#{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {
+#{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 /* remove close button full screen profile */

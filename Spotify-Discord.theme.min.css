@@ -183,6 +183,32 @@
    DECOMMERCIALIZE - Remove premium, store, and monetization elements -  https://discord.com/channels/1015060230222131221/1434558507897585814/1434558511357886577
     The original uses very laggy things so dont use the original code
    ========================================================================== */
+/* hide full screen profile editing tab */
+#profile-modal-editing-panel {
+  display: none;
+}
+
+@media (min-width: 929px) {
+  .layoutContainer__9c3be.editingPanelExpanded__9c3be { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+    --custom-modal-v2-width: 962px;
+    --custom-modal-v2-max-width: calc(100vw - var(--space-48) * 2);
+    --custom-modal-v2-profile-width: min(max(300px, calc(45.5vw - var(--space-48) * 0.91)), 400px);
+    grid-template-columns: 0 1fr;
+  }
+}
+@media (min-width: 1169px) {
+  .layoutContainer__9c3be.editingPanelExpanded__9c3be { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+    --custom-modal-v2-width: 962px;
+    --custom-modal-v2-max-width: calc(100vw - var(--space-48) * 2);
+    --custom-modal-v2-profile-width: min(max(300px, calc(45.5vw - var(--space-48) * 0.91)), 400px);
+    grid-template-columns: 0 1fr;
+  }
+}
+/* hide promoted game tag */
+.wrapper__11054 {
+  display: none;
+}
+
 /* Hide store, shop, and quest links in friends list */
 li > div:has(a[href="/store"]),
 li > div:has(a[href="/shop"]),
@@ -215,7 +241,7 @@ li > div:has(a[href="/quest-home"]) {
    DISCORD UI REMOVALS
    ========================================================================== */
 /* hide ignored users */
-.groupStart__5126c:has(.blockedSystemMessage__7a70a) {
+.groupStart__5126c:has(.blockedSystemMessage__7a70a) { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
