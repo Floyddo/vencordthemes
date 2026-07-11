@@ -275,10 +275,10 @@ li > div:has(a[href="/quest-home"]) {
 #{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
-/* remove close button full screen profile */
-#{$userProfileInner} > div > #{$buttonV2} {
-  display: none;
-}
+// /* remove close button full screen profile */
+// #{$userProfileInner} > div > #{$buttonV2} {
+//   display: none;
+// } this is broken idk why
 
 /* remove nitro badge */
 #{$badgeListContainer} > div:has(>div> a[href="https://discord.com/settings/premium"]) {
@@ -568,6 +568,21 @@ filter: blur(3px);
    ========================================================================== */
 
 
+   /* view full profile button styled as emptybutton */
+#{$userProfileInner} > div > #{$buttonV2} {
+    padding: 0 8px!important;
+  background-color: var(--input-background-default) !important;
+  border: 1px solid var(--input-color) !important;
+  color: var(--text-default) !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  font-size: 22px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  position: relative !important;
+  z-index: 1 !important;
+} 
+
    /* note margin */
 #{$userProfileModalV2ProfileBody} #{userProfileModalSection} > div > textarea {
   margin: 5px;
@@ -593,18 +608,22 @@ filter: blur(3px);
   height: 100%;
 }
 
+#{$dmProfileAside } {
+    height: calc(100% + 70px);
+    border-radius: var(--card-radius) !important;
+    background: var(--app-foreground);
+}
 aside #{ $userProfileOuter } { /* profile in sidebar */
   border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);
-  border-radius: 10px;
   max-height: none;
 }
 
 #{$userProfileModalV2Profile} {
   border-radius: var(--card-radius) !important;
 }
-#{$userProfileInner}  > div:not(#{$scrollbarNone}) > div {
-  border-radius: 0 0 var(--card-radius) var(--card-radius) !important;
+#{$userProfileInner}  #{$channelTextArea}{
+  border-radius: var(--card-radius)!important;
 }
 
 /* Profile - Banner styling */

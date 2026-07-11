@@ -245,11 +245,6 @@ li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
-/* remove close button full screen profile */
-.inner_c0bea0 > div > .button_a22cb0 {
-  display: none;
-}
-
 /* remove nitro badge */
 .container__8061a > div:has(> div > a[href="https://discord.com/settings/premium"]) {
   display: none;
@@ -436,6 +431,21 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    USER PROFILE STYLING
    ========================================================================== */
+/* view full profile button styled as emptybutton */
+.inner_c0bea0 > div > .button_a22cb0 {
+  padding: 0 8px !important;
+  background-color: var(--input-background-default) !important;
+  border: 1px solid var(--input-color) !important;
+  color: var(--text-default) !important;
+  display: block !important;
+  flex: 0 0 auto !important;
+  font-size: 22px !important;
+  height: 70px !important;
+  line-height: 70px !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
 /* note margin */
 .profileBody__9c3be userProfileModalSection > div > textarea {
   margin: 5px;
@@ -461,10 +471,15 @@ li > div:has(a[href="/quest-home"]) {
   height: 100%;
 }
 
+.aside_f58343 {
+  height: calc(100% + 70px);
+  border-radius: var(--card-radius) !important;
+  background: var(--app-foreground);
+}
+
 aside .outer_c0bea0 { /* profile in sidebar */
   border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);
-  border-radius: 10px;
   max-height: none;
 }
 
@@ -472,8 +487,8 @@ aside .outer_c0bea0 { /* profile in sidebar */
   border-radius: var(--card-radius) !important;
 }
 
-.inner_c0bea0 > div:not(.none_d125d2) > div {
-  border-radius: 0 0 var(--card-radius) var(--card-radius) !important;
+.inner_c0bea0 .channelTextArea__74017 {
+  border-radius: var(--card-radius) !important;
 }
 
 /* Profile - Banner styling */
