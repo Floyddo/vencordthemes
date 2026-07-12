@@ -608,11 +608,52 @@ filter: blur(3px);
   height: 100%;
 }
 
-#{$dmProfileAside } {
-    height: calc(100% + 70px);
-    border-radius: var(--card-radius) !important;
-    background: var(--app-foreground);
-}
+// dm aside styling - reverts commit 3f09867
+    #{ $chat } {
+        &[data-has-border="true"] {
+            border-block-start: revert;
+        }
+
+        &:has(#{ $dmProfileAside }) {
+            max-width: revert;
+        }
+    }
+
+    #{ $dmProfileAside } {
+        position: revert;
+        height: revert;
+        inset-block-start: revert;
+        inset-inline-end: revert;
+    }
+
+    #{ $userProfileOuterThemed } {
+        &#{ $dmProfilePanel }#{ $dmProfilePanelRedesign } {
+            border-radius: var(--popout-radius);
+        }
+    }
+    // end revert
+
+    #{ $dmProfilePanel } {
+        &:not(#{ $userProfileOuterThemed }) {
+            background-color: var(--popout-color) !important;
+        }
+    }
+    #{$dmProfileAside } {
+        height: calc(100% + 70px);
+        border-radius: var(--card-radius) !important;
+        background-color: var(--app-foreground);
+          --background-surface-high: var(--popout-color) !important;
+          --user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
+          --profile-gradient-primary-color: var(--popout-color) !important;
+          --profile-gradient-secondary-color: var(--popout-color) !important;
+          --profile-avatar-border-color: var(--popout-color) !important;
+          --profile-body-background-color: var(--popout-color-alt) !important;
+          --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+          --bg-mod-faint: var(--profile-body-background-color) !important;
+      }
+    
+//
+
 aside #{ $userProfileOuter } { /* profile in sidebar */
   border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);

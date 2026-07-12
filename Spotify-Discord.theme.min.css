@@ -471,10 +471,40 @@ li > div:has(a[href="/quest-home"]) {
   height: 100%;
 }
 
+.chat_f75fb0[data-has-border=true] {
+  border-block-start: revert;
+}
+.chat_f75fb0:has(.aside_f58343) {
+  max-width: revert;
+}
+
+.aside_f58343 {
+  position: revert;
+  height: revert;
+  inset-block-start: revert;
+  inset-inline-end: revert;
+}
+
+.custom-user-profile-theme.user-profile-sidebar.user-profile-sidebar-redesign {
+  border-radius: var(--popout-radius);
+}
+
+.user-profile-sidebar:not(.custom-user-profile-theme) {
+  background-color: var(--popout-color) !important;
+}
+
 .aside_f58343 {
   height: calc(100% + 70px);
   border-radius: var(--card-radius) !important;
-  background: var(--app-foreground);
+  background-color: var(--app-foreground);
+  --background-surface-high: var(--popout-color) !important;
+  --user-profile-overlay-background: var(--profile-gradient-primary-color) !important;
+  --profile-gradient-primary-color: var(--popout-color) !important;
+  --profile-gradient-secondary-color: var(--popout-color) !important;
+  --profile-avatar-border-color: var(--popout-color) !important;
+  --profile-body-background-color: var(--popout-color-alt) !important;
+  --bg-surface-overlay: var(--profile-gradient-primary-color) !important;
+  --bg-mod-faint: var(--profile-body-background-color) !important;
 }
 
 aside .outer_c0bea0 { /* profile in sidebar */
