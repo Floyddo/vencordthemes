@@ -271,10 +271,10 @@ li > div:has(a[href="/quest-home"]) {
    DISCORD UI REMOVALS
    ========================================================================== */
   
-/* hide ignored users */
-#{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
-  display: none;
-}
+// /* hide ignored users */
+// #{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+//   display: none;
+// }
 // /* remove close button full screen profile */
 // #{$userProfileInner} > div > #{$buttonV2} {
 //   display: none;
@@ -466,6 +466,21 @@ filter: blur(3px);
    PANELS & SIDEBARS
    ========================================================================== */
 
+/* call timer next to channel name */
+.lineClamp1__4bd52 {
+    display: flex;
+    gap: 4px;
+}
+
+.lineClamp1__4bd52 p {
+    display: inline;
+    margin: 0;
+}
+
+.lineClamp1__4bd52 p::before {
+    content: "- ";
+}
+
 /* Account panel */
 #{ $accountPanel } {
   #{ $accountPanelNameTag } {
@@ -480,12 +495,12 @@ filter: blur(3px);
   border-top: none!important;
 }
 
-#{ $panels } {
-  #{ $activityPanel },
-  #{ $accountPanel } {
-    background-color: hsla(0,0%,7%, 0.5)!important; /* experimental */
-  }
-}
+// #{ $panels } {
+//   #{ $activityPanel },
+//   #{ $accountPanel } {
+//     background-color: hsla(0,0%,7%, 0.5)!important; /* experimental */
+//   }
+// }
 
 /* Activity panel */
 #{ $activityPanel } {
@@ -494,7 +509,8 @@ filter: blur(3px);
   z-index: 2;
 }
 
-#{ $activityPanel } { /* gradient line */
+
+#{ $activityPanel }, #{$panels}:has(.containerRtcOpened__37e49) #{$connectionPanelWrapper} { /* gradient line */
   background: transparent !important;
   border-bottom: 1px solid transparent;
   border-image: linear-gradient(to right,
@@ -964,6 +980,71 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 /* ==========================================================================
    EXPERIMENTAL FEATURES (COMMENTED OUT) these are old so dont use them
    ========================================================================== */
+
+
+/* spotify player color also covers user profile */
+#vc-spotify-player::before {
+  height: 200%;
+  top: -64px;
+}
+
+#{$panels}:has(#vc-spotify-player) #{$accountPanel}, #{$panels}:has(#vc-spotify-player) {
+  background: transparent!important;
+}
+
+
+
+#{$panels}:has(#vc-spotify-player) #{$accountPanel} {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right,
+      transparent 0%,
+      transparent 5%,
+      var(--card-border-color) 5%,
+      var(--card-border-color) 95%,
+      transparent 95%,
+      transparent 100%) 1;
+  border-image-source: linear-gradient(to right,
+      transparent 0%,
+      transparent 5%,
+      var(--card-border-color) 5%,
+      var(--card-border-color) 95%,
+      transparent 95%,
+      transparent 100%);
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
+      border-radius: 0px!important;
+}
+#{$panels}:has(#vc-spotify-player):has(.containerRtcOpened__37e49) #{$connectionPanelWrapper} {
+  border-bottom: 1px solid transparent;
+  border-image: linear-gradient(to right,
+      transparent 0%,
+      transparent 5%,
+      var(--card-border-color) 5%,
+      var(--card-border-color) 95%,
+      transparent 95%,
+      transparent 100%) 1;
+  border-image-source: linear-gradient(to right,
+      transparent 0%,
+      transparent 5%,
+      var(--card-border-color) 5%,
+      var(--card-border-color) 95%,
+      transparent 95%,
+      transparent 100%);
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
+}
+
+#{$panels}:has(#vc-spotify-player) {
+  --card-border-color: hsla(0, 0%, 67%, .2)!important;
+}
+
+#{$panels}:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
+  height: calc(200% + 104px);
+  top: -168px;
+  filter: blur(3px) opacity(0.4);
+}
 
 /*
 Spotify player as chip (non-visual-refresh):

@@ -240,11 +240,6 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
-/* hide ignored users */
-.groupStart__5126c:has(.blockedSystemMessage__7a70a) { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
-  display: none;
-}
-
 /* remove nitro badge */
 .container__8061a > div:has(> div > a[href="https://discord.com/settings/premium"]) {
   display: none;
@@ -354,6 +349,21 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    PANELS & SIDEBARS
    ========================================================================== */
+/* call timer next to channel name */
+.lineClamp1__4bd52 {
+  display: flex;
+  gap: 4px;
+}
+
+.lineClamp1__4bd52 p {
+  display: inline;
+  margin: 0;
+}
+
+.lineClamp1__4bd52 p::before {
+  content: "- ";
+}
+
 /* Account panel */
 .container__37e49 .nameTag__37e49 .text-md\/medium_cf4812,
 .container__37e49 .nameTag__37e49 .text-xs\/medium_cf4812 {
@@ -364,11 +374,6 @@ li > div:has(a[href="/quest-home"]) {
   border-top: none !important;
 }
 
-.panels__5e434 .activityPanel__5e434,
-.panels__5e434 .container__37e49 {
-  background-color: hsla(0, 0%, 7%, 0.5) !important; /* experimental */
-}
-
 /* Activity panel */
 .activityPanel__5e434 {
   border-bottom: 1px solid var(--sidebar-panel-border) !important;
@@ -376,7 +381,7 @@ li > div:has(a[href="/quest-home"]) {
   z-index: 2;
 }
 
-.activityPanel__5e434 { /* gradient line */
+.activityPanel__5e434, .panels__5e434:has(.containerRtcOpened__37e49) .wrapper_e131a9 { /* gradient line */
   background: transparent !important;
   border-bottom: 1px solid transparent;
   -o-border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
@@ -779,6 +784,47 @@ aside .outer_c0bea0 { /* profile in sidebar */
 /* ==========================================================================
    EXPERIMENTAL FEATURES (COMMENTED OUT) these are old so dont use them
    ========================================================================== */
+/* spotify player color also covers user profile */
+#vc-spotify-player::before {
+  height: 200%;
+  top: -64px;
+}
+
+.panels__5e434:has(#vc-spotify-player) .container__37e49, .panels__5e434:has(#vc-spotify-player) {
+  background: transparent !important;
+}
+
+.panels__5e434:has(#vc-spotify-player) .container__37e49 {
+  border-bottom: 1px solid transparent;
+  -o-border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
+     border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
+  border-image-source: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%);
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
+  border-radius: 0px !important;
+}
+
+.panels__5e434:has(#vc-spotify-player):has(.containerRtcOpened__37e49) .wrapper_e131a9 {
+  border-bottom: 1px solid transparent;
+  -o-border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
+     border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
+  border-image-source: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%);
+  border-image-slice: 1;
+  border-left: 0;
+  border-right: 0;
+}
+
+.panels__5e434:has(#vc-spotify-player) {
+  --card-border-color: hsla(0, 0%, 67%, .2)!important;
+}
+
+.panels__5e434:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
+  height: calc(200% + 104px);
+  top: -168px;
+  filter: blur(3px) opacity(0.4);
+}
+
 /*
 Spotify player as chip (non-visual-refresh):
 
