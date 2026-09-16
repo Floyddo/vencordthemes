@@ -202,12 +202,44 @@
     monospace;
 }
 
-
 /* ==========================================================================
    DECOMMERCIALIZE - Remove premium, store, and monetization elements -  https://discord.com/channels/1015060230222131221/1434558507897585814/1434558511357886577
     The original uses very laggy things so dont use the original code
    ========================================================================== */
 
+/* remove wishlist tab */
+#{$discoverHeaderTopBar} > div[data-tab-id="WISHLIST"] {
+  display: none;
+}
+
+/* undo custom name fonts */
+#{$displayEffectTextShowEffect}#{$displayEffectTextContainer} span {
+  all: unset!important;
+}
+#{$displayEffectTextContainer}, #{$displayEffectTextContainer}>span {
+  --app-font: unset!important;
+  --custom-display-name-styles-main-color: unset!important;
+  --custom-display-name-styles-light-1-color: unset!important;
+  --custom-display-name-styles-light-2-color: unset!important;
+  --custom-display-name-styles-dark-1-color: unset!important;
+  --custom-display-name-styles-dark-2-color: unset!important;
+  --custom-display-name-styles-toon-stroke-color: unset!important;
+  --custom-display-name-styles-neon-stroke-color: unset!important;
+  --custom-display-name-styles-wrap: unset!important;
+  --custom-display-name-styles-font-opacity: unset!important;
+}
+
+/* hide profile frames - and resize the profile back */
+
+#{$userProfileInner} .custom-profile-frame {
+  display: none;
+}
+.custom-profile-frame {
+    --custom-profile-frame-container-width: unset!important;
+    --custom-profile-frame-overflow-top: unset!important;
+    --custom-profile-frame-overflow-bottom: unset!important;
+    --custom-profile-frame-overflow-horizontal: unset!important;
+}
 
 /* hide full screen profile editing tab */
 #profile-modal-editing-panel {
@@ -249,7 +281,10 @@ li > div:has(a[href="/quest-home"]) {
 
 
 /* Hide premium nameplate decorations */
-#{ $memberNameplated }, #{$privateChannelDm}  {
+#{$memberNameplate} {
+  display: none;
+}
+#{ $memberNameplated }, #{$privateChannelDm} {
     #{ $memberGradientContainer } {
         background: none !important;
     }
@@ -275,29 +310,24 @@ li > div:has(a[href="/quest-home"]) {
 // #{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
 //   display: none;
 // }
+
 // /* remove close button full screen profile */
 // #{$userProfileInner} > div > #{$buttonV2} {
 //   display: none;
 // } this is broken idk why
 
-/* remove nitro badge */
-#{$badgeListContainer} > div:has(>div> a[href="https://discord.com/settings/premium"]) {
-  display: none;
-}
-
-/* remove boosting badge from profile */
-#{$badgeListContainer} > a[href="https://discord.com/settings/premium"] {
-  display: none;
-}
-
-/* remove quest completed badge */
-#{$badgeListContainer} > a[href="https://discord.com/discovery/quests"] {
-  display: none;
-}
-
-/* remove quests orb badge, this might not work for different locales */
-#{$badgeListContainer} > a[aria-label="Collected the Orb Profile Badge"] {
-  display: none;
+/* remove paid/slop badges */
+#{$badgeListContainer} {
+  > div:has(>div> a[href="https://discord.com/settings/premium"]), /* remove nitro badge */
+  > a[href="https://discord.com/settings/premium"], /* remove boosting badge from profile */ 
+  > a[href="https://discord.com/discovery/quests"], /* remove quest completed badge */
+  // > div >  a[aria-label="Collected the Orb Profile Badge"], /* remove quests orb badge, this might not work for different locales */
+  >div:has(>a>img[src="https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"]), /* remove orb guaranteed to work */
+  >a[aria-label^="Gifting"], // remove gifting badge (starting aria)
+  >a[href="https://discord.com/settings/guild-boosting"] /* remove boosting */
+  {
+    display: none;
+  }
 }
 
 /* Remove laggy backdrop blur from full screen user profile*/
@@ -308,7 +338,7 @@ filter: blur(3px);
 
 /* textarea buttons */
  #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // Current nitro gift button in text area
- .container_c0c49a, /* Requires manual updating: A/B nitro gift button in text area, may break with updates */
+ .container__5287f, /* Requires manual updating: A/B nitro gift button in text area, may break with updates */
 #{ $channelAppLauncherButtonContainer} {
   display: none;
 }
@@ -876,9 +906,16 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
    ========================================================================== */
 
 /* bar color */
- #vc-spotify-progress-bar #{ $sliderBarFill} {
+ #vc-spotify-progress-bar #{ $sliderBarFill},
+ #vc-spotify-progress-bar .barFill__4c059 {
   background-color: #888888;
  }
+#vc-spotify-progress-bar .grabber__4c059 {
+  display: none;
+}
+#vc-spotify-progress-bar:hover .grabber__4c059 {
+  display: block;
+}
 
 /* Spotify artist text color */
 .vc-spotify-secondary-song-info > span {
@@ -983,68 +1020,68 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 
 
 /* spotify player color also covers user profile */
-#vc-spotify-player::before {
-  height: 200%;
-  top: -64px;
-}
+// #vc-spotify-player::before {
+//   height: 200%;
+//   top: -64px;
+// }
 
-#{$panels}:has(#vc-spotify-player) #{$accountPanel}, #{$panels}:has(#vc-spotify-player) {
-  background: transparent!important;
-}
+// #{$panels}:has(#vc-spotify-player) #{$accountPanel}, #{$panels}:has(#vc-spotify-player) {
+//   background: transparent!important;
+// }
 
 
 
-#{$panels}:has(#vc-spotify-player) #{$accountPanel} {
-  border-bottom: 1px solid transparent;
-  border-image: linear-gradient(to right,
-      transparent 0%,
-      transparent 5%,
-      var(--card-border-color) 5%,
-      var(--card-border-color) 95%,
-      transparent 95%,
-      transparent 100%) 1;
-  border-image-source: linear-gradient(to right,
-      transparent 0%,
-      transparent 5%,
-      var(--card-border-color) 5%,
-      var(--card-border-color) 95%,
-      transparent 95%,
-      transparent 100%);
-  border-image-slice: 1;
-  border-left: 0;
-  border-right: 0;
-      border-radius: 0px!important;
-}
-#{$panels}:has(#vc-spotify-player):has(.containerRtcOpened__37e49) #{$connectionPanelWrapper} {
-  border-bottom: 1px solid transparent;
-  border-image: linear-gradient(to right,
-      transparent 0%,
-      transparent 5%,
-      var(--card-border-color) 5%,
-      var(--card-border-color) 95%,
-      transparent 95%,
-      transparent 100%) 1;
-  border-image-source: linear-gradient(to right,
-      transparent 0%,
-      transparent 5%,
-      var(--card-border-color) 5%,
-      var(--card-border-color) 95%,
-      transparent 95%,
-      transparent 100%);
-  border-image-slice: 1;
-  border-left: 0;
-  border-right: 0;
-}
+// #{$panels}:has(#vc-spotify-player) #{$accountPanel} {
+//   border-bottom: 1px solid transparent;
+//   border-image: linear-gradient(to right,
+//       transparent 0%,
+//       transparent 5%,
+//       var(--card-border-color) 5%,
+//       var(--card-border-color) 95%,
+//       transparent 95%,
+//       transparent 100%) 1;
+//   border-image-source: linear-gradient(to right,
+//       transparent 0%,
+//       transparent 5%,
+//       var(--card-border-color) 5%,
+//       var(--card-border-color) 95%,
+//       transparent 95%,
+//       transparent 100%);
+//   border-image-slice: 1;
+//   border-left: 0;
+//   border-right: 0;
+//       border-radius: 0px!important;
+// }
+// #{$panels}:has(#vc-spotify-player):has(.containerRtcOpened__37e49) #{$connectionPanelWrapper} {
+//   border-bottom: 1px solid transparent;
+//   border-image: linear-gradient(to right,
+//       transparent 0%,
+//       transparent 5%,
+//       var(--card-border-color) 5%,
+//       var(--card-border-color) 95%,
+//       transparent 95%,
+//       transparent 100%) 1;
+//   border-image-source: linear-gradient(to right,
+//       transparent 0%,
+//       transparent 5%,
+//       var(--card-border-color) 5%,
+//       var(--card-border-color) 95%,
+//       transparent 95%,
+//       transparent 100%);
+//   border-image-slice: 1;
+//   border-left: 0;
+//   border-right: 0;
+// }
 
-#{$panels}:has(#vc-spotify-player) {
-  --card-border-color: hsla(0, 0%, 67%, .2)!important;
-}
+// #{$panels}:has(#vc-spotify-player) {
+//   --card-border-color: hsla(0, 0%, 67%, .2)!important;
+// }
 
-#{$panels}:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
-  height: calc(200% + 104px);
-  top: -168px;
-  filter: blur(3px) opacity(0.4);
-}
+// #{$panels}:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
+//   height: calc(200% + 104px);
+//   top: -168px;
+//   filter: blur(3px) opacity(0.6);
+// }
 
 /*
 Spotify player as chip (non-visual-refresh):

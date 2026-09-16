@@ -183,6 +183,41 @@
    DECOMMERCIALIZE - Remove premium, store, and monetization elements -  https://discord.com/channels/1015060230222131221/1434558507897585814/1434558511357886577
     The original uses very laggy things so dont use the original code
    ========================================================================== */
+/* remove wishlist tab */
+.top_aa8da2 > div[data-tab-id=WISHLIST] {
+  display: none;
+}
+
+/* undo custom name fonts */
+.showEffect_dfb989.container_dfb989 span {
+  all: unset !important;
+}
+
+.container_dfb989, .container_dfb989 > span {
+  --app-font: unset!important;
+  --custom-display-name-styles-main-color: unset!important;
+  --custom-display-name-styles-light-1-color: unset!important;
+  --custom-display-name-styles-light-2-color: unset!important;
+  --custom-display-name-styles-dark-1-color: unset!important;
+  --custom-display-name-styles-dark-2-color: unset!important;
+  --custom-display-name-styles-toon-stroke-color: unset!important;
+  --custom-display-name-styles-neon-stroke-color: unset!important;
+  --custom-display-name-styles-wrap: unset!important;
+  --custom-display-name-styles-font-opacity: unset!important;
+}
+
+/* hide profile frames - and resize the profile back */
+.inner_c0bea0 .custom-profile-frame {
+  display: none;
+}
+
+.custom-profile-frame {
+  --custom-profile-frame-container-width: unset!important;
+  --custom-profile-frame-overflow-top: unset!important;
+  --custom-profile-frame-overflow-bottom: unset!important;
+  --custom-profile-frame-overflow-horizontal: unset!important;
+}
+
 /* hide full screen profile editing tab */
 #profile-modal-editing-panel {
   display: none;
@@ -221,6 +256,10 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Hide premium nameplate decorations */
+.container_df39b2 {
+  display: none;
+}
+
 .nameplated__91a9d .container__4bbc6, .dm__972a0 .container__4bbc6 {
   background: none !important;
 }
@@ -240,23 +279,13 @@ li > div:has(a[href="/quest-home"]) {
 /* ==========================================================================
    DISCORD UI REMOVALS
    ========================================================================== */
-/* remove nitro badge */
-.container__8061a > div:has(> div > a[href="https://discord.com/settings/premium"]) {
-  display: none;
-}
-
-/* remove boosting badge from profile */
-.container__8061a > a[href="https://discord.com/settings/premium"] {
-  display: none;
-}
-
-/* remove quest completed badge */
-.container__8061a > a[href="https://discord.com/discovery/quests"] {
-  display: none;
-}
-
-/* remove quests orb badge, this might not work for different locales */
-.container__8061a > a[aria-label="Collected the Orb Profile Badge"] {
+/* remove paid/slop badges */
+.container__8061a > div:has(> div > a[href="https://discord.com/settings/premium"]),
+.container__8061a > a[href="https://discord.com/settings/premium"],
+.container__8061a > a[href="https://discord.com/discovery/quests"],
+.container__8061a > div:has(> a > img[src="https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"]),
+.container__8061a > a[aria-label^=Gifting],
+.container__8061a > a[href="https://discord.com/settings/guild-boosting"] {
   display: none;
 }
 
@@ -268,7 +297,7 @@ li > div:has(a[href="/quest-home"]) {
 
 /* textarea buttons */
 .buttons__74017 > .button__74017.button__24af7,
-.container_c0c49a,
+.container__5287f,
 .buttonContainer_e6e74f {
   display: none;
 }
@@ -681,8 +710,17 @@ aside .outer_c0bea0 { /* profile in sidebar */
    SPOTIFY CONTROLS (VENCORD PLUGIN)
    ========================================================================== */
 /* bar color */
-#vc-spotify-progress-bar .barFill_a562c8 {
+#vc-spotify-progress-bar .barFill_a562c8,
+#vc-spotify-progress-bar .barFill__4c059 {
   background-color: #888888;
+}
+
+#vc-spotify-progress-bar .grabber__4c059 {
+  display: none;
+}
+
+#vc-spotify-progress-bar:hover .grabber__4c059 {
+  display: block;
 }
 
 /* Spotify artist text color */
@@ -785,46 +823,6 @@ aside .outer_c0bea0 { /* profile in sidebar */
    EXPERIMENTAL FEATURES (COMMENTED OUT) these are old so dont use them
    ========================================================================== */
 /* spotify player color also covers user profile */
-#vc-spotify-player::before {
-  height: 200%;
-  top: -64px;
-}
-
-.panels__5e434:has(#vc-spotify-player) .container__37e49, .panels__5e434:has(#vc-spotify-player) {
-  background: transparent !important;
-}
-
-.panels__5e434:has(#vc-spotify-player) .container__37e49 {
-  border-bottom: 1px solid transparent;
-  -o-border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
-     border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
-  border-image-source: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%);
-  border-image-slice: 1;
-  border-left: 0;
-  border-right: 0;
-  border-radius: 0px !important;
-}
-
-.panels__5e434:has(#vc-spotify-player):has(.containerRtcOpened__37e49) .wrapper_e131a9 {
-  border-bottom: 1px solid transparent;
-  -o-border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
-     border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
-  border-image-source: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%);
-  border-image-slice: 1;
-  border-left: 0;
-  border-right: 0;
-}
-
-.panels__5e434:has(#vc-spotify-player) {
-  --card-border-color: hsla(0, 0%, 67%, .2)!important;
-}
-
-.panels__5e434:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
-  height: calc(200% + 104px);
-  top: -168px;
-  filter: blur(3px) opacity(0.4);
-}
-
 /*
 Spotify player as chip (non-visual-refresh):
 
