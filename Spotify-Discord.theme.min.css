@@ -565,26 +565,14 @@ aside .outer_c0bea0 { /* profile in sidebar */
 /* ==========================================================================
    CHAT & MESSAGING
    ========================================================================== */
-/* Chat page */
+/* Chat page  full screen fullscreen lengthen stretch*/
 .page__5e434 {
   overflow: hidden;
 }
 
-.chat_f75fb0:has(.forumPostTitle_f75fb0),
-.chat_f75fb0:has(.container_f369db) {
+.chat_f75fb0:not(:has(.form_f75fb0)):not(:has(.callContainer_cb9592)) {
   height: 99.92% !important;
-  border-radius: 10px;
   max-height: none;
-}
-
-.page__5e434:has(.noChat_cb9592) { /* call wrapper sizing */
-  height: calc(100% + 80px) !important;
-  max-height: none;
-}
-
-.page__5e434:has(.callContainer_cb9592) {
-  height: inherit !important;
-  max-height: inherit;
 }
 
 /* Bot tags */

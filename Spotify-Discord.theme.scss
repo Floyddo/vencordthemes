@@ -724,27 +724,36 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
    CHAT & MESSAGING
    ========================================================================== */
 
-/* Chat page */
+/* Chat page  full screen fullscreen lengthen stretch*/
 #{ $chatPage } {
   overflow: hidden;
 }
 
-#{ $chat }:has(#{ $threadsPopoutPostTitle }), /* forum post sizing */
-#{ $chat }:has(#{ $forumContainer }) {
+#{ $chat }:not(:has(#{$chatForm})):not(:has(#{ $callContainer })) {
   height: calc(99.92%)!important;
-  border-radius: 10px;
   max-height: none;
 }
 
-#{ $chatPage }:has(#{ $callWrapperNoChat }) { /* call wrapper sizing */
-  height: calc(100% + 80px)!important;
-  max-height: none;
-}
 
-#{ $chatPage }:has(#{ $callContainer }) {
-  height: inherit!important;
-  max-height: inherit;
-}
+
+// LEGACY CODE
+//
+// #{ $chat }:has(#{ $threadsPopoutPostTitle }), /* forum post sizing */
+// #{ $chat }:has(#{ $forumContainer }) {
+//   height: calc(99.92%)!important;
+//   border-radius: 10px;
+//   max-height: none;
+// }
+
+// #{ $chatPage }:has(#{ $callWrapperNoChat }) { /* call wrapper sizing */
+//   height: calc(100% + 80px)!important;
+//   max-height: none;
+// }
+
+// #{ $chat }:has(#{ $callContainer }) {
+//   height: inherit!important;
+//   max-height: inherit;
+// }
 
 /* Bot tags */
 #{ $botTag } {
