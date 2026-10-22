@@ -188,22 +188,37 @@
   display: none;
 }
 
-/* undo custom name fonts */
-.showEffect_dfb989.container_dfb989 span {
-  all: unset !important;
+/* disable custom username gradients only */
+.twoColorGradient_e5de78,
+.threeColorGradient_e5de78,
+.usernameGradient_e5de78,
+.usernameGlow_e5de78,
+.usernameGlowActive_e5de78,
+.convenienceGlowGradient_e5de78,
+.convenienceGlowGradientActive_e5de78,
+.animateGradient_e5de78,
+.gradientDotAnimation_e5de78 {
+  animation: none !important;
+  background: none !important;
+  background-image: none !important;
+  background-clip: initial !important;
+  -webkit-background-clip: initial !important;
+  filter: none !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: initial !important;
+  color: var(--custom-gradient-color-1);
 }
 
-.container_dfb989, .container_dfb989 > span {
-  --app-font: unset!important;
-  --custom-display-name-styles-main-color: unset!important;
-  --custom-display-name-styles-light-1-color: unset!important;
-  --custom-display-name-styles-light-2-color: unset!important;
-  --custom-display-name-styles-dark-1-color: unset!important;
-  --custom-display-name-styles-dark-2-color: unset!important;
-  --custom-display-name-styles-toon-stroke-color: unset!important;
-  --custom-display-name-styles-neon-stroke-color: unset!important;
-  --custom-display-name-styles-wrap: unset!important;
-  --custom-display-name-styles-font-opacity: unset!important;
+.usernameGlow_e5de78,
+.usernameGlowActive_e5de78,
+.convenienceGlowGradient_e5de78::after,
+.convenienceGlowGradientActive_e5de78::after {
+  display: none !important;
+}
+
+.convenienceGlowGradient_e5de78 {
+  position: static !important;
+  z-index: auto !important;
 }
 
 /* hide profile frames - and resize the profile back */
@@ -280,12 +295,19 @@ li > div:has(a[href="/quest-home"]) {
    DISCORD UI REMOVALS
    ========================================================================== */
 /* remove paid/slop badges */
-.container__8061a > div:has(> div > a[href="https://discord.com/settings/premium"]),
-.container__8061a > a[href="https://discord.com/settings/premium"],
-.container__8061a > a[href="https://discord.com/discovery/quests"],
-.container__8061a > div:has(> a > img[src="https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"]),
-.container__8061a > a[aria-label^=Gifting],
-.container__8061a > a[href="https://discord.com/settings/guild-boosting"] {
+.container__8061a > :not(.vc-platform-indicator) {
+  display: none;
+}
+
+.wrapper__0bd12 {
+  display: none;
+}
+
+.questsIcon_c9d15c {
+  display: none;
+}
+
+.premiumIcon__5d473 {
   display: none;
 }
 
@@ -698,7 +720,7 @@ aside .outer_c0bea0 { /* profile in sidebar */
    SPOTIFY CONTROLS (VENCORD PLUGIN)
    ========================================================================== */
 /* bar color */
-#vc-spotify-progress-bar .barFill_a562c8,
+#vc-spotify-progress-bar .barFill__4c059,
 #vc-spotify-progress-bar .barFill__4c059 {
   background-color: #888888;
 }

@@ -212,23 +212,57 @@
   display: none;
 }
 
-/* undo custom name fonts */
-#{$displayEffectTextShowEffect}#{$displayEffectTextContainer} span {
-  all: unset!important;
-}
-#{$displayEffectTextContainer}, #{$displayEffectTextContainer}>span {
-  --app-font: unset!important;
-  --custom-display-name-styles-main-color: unset!important;
-  --custom-display-name-styles-light-1-color: unset!important;
-  --custom-display-name-styles-light-2-color: unset!important;
-  --custom-display-name-styles-dark-1-color: unset!important;
-  --custom-display-name-styles-dark-2-color: unset!important;
-  --custom-display-name-styles-toon-stroke-color: unset!important;
-  --custom-display-name-styles-neon-stroke-color: unset!important;
-  --custom-display-name-styles-wrap: unset!important;
-  --custom-display-name-styles-font-opacity: unset!important;
+
+/////Disable in accessibiliity settings
+// /* undo custom name fonts */
+// #{$displayEffectTextShowEffect}#{$displayEffectTextContainer} span {
+//   all: unset!important;
+// }
+// #{$displayEffectTextContainer}, #{$displayEffectTextContainer}>span {
+//   --app-font: unset!important;
+//   --custom-display-name-styles-main-color: unset!important;
+//   --custom-display-name-styles-light-1-color: unset!important;
+//   --custom-display-name-styles-light-2-color: unset!important;
+//   --custom-display-name-styles-dark-1-color: unset!important;
+//   --custom-display-name-styles-dark-2-color: unset!important;
+//   --custom-display-name-styles-toon-stroke-color: unset!important;
+//   --custom-display-name-styles-neon-stroke-color: unset!important;
+//   --custom-display-name-styles-wrap: unset!important;
+//   --custom-display-name-styles-font-opacity: unset!important;
+// }
+
+/* disable custom username gradients only */
+.twoColorGradient_e5de78,
+.threeColorGradient_e5de78,
+.usernameGradient_e5de78,
+.usernameGlow_e5de78,
+.usernameGlowActive_e5de78,
+.convenienceGlowGradient_e5de78,
+.convenienceGlowGradientActive_e5de78,
+.animateGradient_e5de78,
+.gradientDotAnimation_e5de78 {
+  animation: none!important;
+  background: none!important;
+  background-image: none!important;
+  background-clip: initial!important;
+  -webkit-background-clip: initial!important;
+  filter: none!important;
+  opacity: 1!important;
+  -webkit-text-fill-color: initial!important;
+  color: var(--custom-gradient-color-1)
 }
 
+.usernameGlow_e5de78,
+.usernameGlowActive_e5de78,
+.convenienceGlowGradient_e5de78::after,
+.convenienceGlowGradientActive_e5de78::after {
+  display: none!important;
+}
+
+.convenienceGlowGradient_e5de78 {
+  position: static!important;
+  z-index: auto!important;
+}
 /* hide profile frames - and resize the profile back */
 
 #{$userProfileInner} .custom-profile-frame {
@@ -317,17 +351,36 @@ li > div:has(a[href="/quest-home"]) {
 // } this is broken idk why
 
 /* remove paid/slop badges */
-#{$badgeListContainer} {
-  > div:has(>div> a[href="https://discord.com/settings/premium"]), /* remove nitro badge */
-  > a[href="https://discord.com/settings/premium"], /* remove boosting badge from profile */ 
-  > a[href="https://discord.com/discovery/quests"], /* remove quest completed badge */
-  // > div >  a[aria-label="Collected the Orb Profile Badge"], /* remove quests orb badge, this might not work for different locales */
-  >div:has(>a>img[src="https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"]), /* remove orb guaranteed to work */
-  >a[aria-label^="Gifting"], // remove gifting badge (starting aria)
-  >a[href="https://discord.com/settings/guild-boosting"] /* remove boosting */
-  {
+#{$badgeListContainer} > :not(.vc-platform-indicator) {
     display: none;
-  }
+}
+//OLD
+// #{$badgeListContainer} {
+//   > div:has(>div> a[href="https://discord.com/settings/premium"]), /* remove nitro badge */
+//   > a[href="https://discord.com/settings/premium"], /* remove boosting badge from profile */ 
+//   > a[href="https://discord.com/discovery/quests"], /* remove quest completed badge */
+//   // > div >  a[aria-label="Collected the Orb Profile Badge"], /* remove quests orb badge, this might not work for different locales */
+//   >div:has(>a>img[src="https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"]), /* remove orb guaranteed to work */
+//   >a[aria-label^="Gifting"], // remove gifting badge (starting aria)
+//   >a[href="https://discord.com/settings/guild-boosting"] /* remove boosting */
+//   {
+//     display: none;
+//   }
+// }
+
+//quest popout
+.wrapper__0bd12 {
+  display: none;
+}
+
+// quests icon next to game playing
+.questsIcon_c9d15c {
+  display: none;
+}
+
+// boosting icon in tab
+.premiumIcon__5d473 {
+  display: none;
 }
 
 /* Remove laggy backdrop blur from full screen user profile*/
@@ -733,7 +786,6 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
   height: calc(99.92%)!important;
   max-height: none;
 }
-
 
 
 // LEGACY CODE
