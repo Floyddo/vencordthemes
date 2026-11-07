@@ -184,7 +184,7 @@
     The original uses very laggy things so dont use the original code
    ========================================================================== */
 /* remove wishlist tab */
-.top_aa8da2 > div[data-tab-id=WISHLIST] {
+.top_6zZYhF > div[data-tab-id=WISHLIST] {
   display: none;
 }
 
@@ -222,7 +222,7 @@
 }
 
 /* hide profile frames - and resize the profile back */
-.inner_c0bea0 .custom-profile-frame {
+.inner_P1YEjQ .custom-profile-frame {
   display: none;
 }
 
@@ -255,7 +255,7 @@
   }
 }
 /* hide promoted game tag */
-.wrapper__11054 {
+.wrapper_vVEhpw {
   display: none;
 }
 
@@ -266,19 +266,19 @@ li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
-.avatarDecoration_c19a55, .avatarDecoration__44b0c {
+.avatarDecoration_2i8Bfm, .avatarDecoration_XpIUHy {
   display: none;
 }
 
 /* Hide premium nameplate decorations */
-.container_df39b2 {
+.container_AFi54G {
   display: none;
 }
 
-.nameplated__91a9d .container__4bbc6, .dm__972a0 .container__4bbc6 {
+.nameplated_J1Adu_ .container_AFi54G, .dm_zln_tS .container_AFi54G {
   background: none !important;
 }
-.nameplated__91a9d .videoContainer__4bbc6, .dm__972a0 .videoContainer__4bbc6 {
+.nameplated_J1Adu_ .videoContainer_AFi54G, .dm_zln_tS .videoContainer_AFi54G {
   display: none;
 }
 
@@ -287,7 +287,7 @@ li > div:has(a[href="/quest-home"]) {
   display: none;
 }
 
-.nameplated__91a9d > .container_df39b2 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+.nameplated_J1Adu_ > .container_df39b2 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
@@ -295,7 +295,7 @@ li > div:has(a[href="/quest-home"]) {
    DISCORD UI REMOVALS
    ========================================================================== */
 /* remove paid/slop badges */
-.container__8061a > :not(.vc-platform-indicator) {
+.container_IqWmhA > :not(.vc-platform-indicator) {
   display: none;
 }
 
@@ -312,30 +312,30 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Remove laggy backdrop blur from full screen user profile*/
-.backgroundImage__9c3be::after {
+.backgroundImage_s3DB6Y::after {
   backdrop-filter: none;
   filter: blur(3px);
 }
 
 /* textarea buttons */
-.buttons__74017 > .button__74017.button__24af7,
+.buttons_2x8-Qn > .button_2x8-Qn.button_hfM7yP,
 .container__5287f,
-.buttonContainer_e6e74f {
+.buttonContainer_s8hOwn {
   display: none;
 }
 
 /* hides clan tags */
-.chipletContainerInner__10651 {
+.chipletContainerInner_k8jyN7 {
   display: none !important;
 }
 
 /* Remove emoijs in quickbar message reactions */
-.wrapper_f7ecac > span:has(.emoji) {
+.wrapper_Z0MHyc > span:has(.emoji) {
   display: none;
 }
 
 /* Remove separator in message button wrapper */
-.wrapper_f7ecac > .separator_f84418 {
+.wrapper_Z0MHyc > .separator_DpHsW6 {
   display: none;
 }
 
@@ -343,17 +343,17 @@ li > div:has(a[href="/quest-home"]) {
    SERVER/GUILD STYLING
    ========================================================================== */
 /* Guild folder icons */
-.folderPreview__48112 {
+.folderPreview_RTMSuZ {
   display: none;
 }
 
-.folderPreviewWrapper__48112 {
+.folderPreviewWrapper_RTMSuZ {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.folderPreviewWrapper__48112::before {
+.folderPreviewWrapper_RTMSuZ::before {
   position: absolute;
   content: " ";
   width: 24px;
@@ -369,30 +369,30 @@ li > div:has(a[href="/quest-home"]) {
   transform: scale(1.3);
 }
 
-.theme-light .folderPreviewWrapper__48112 {
+.theme-light .folderPreviewWrapper_RTMSuZ {
   filter: brightness(0.5) saturate(4);
 }
 
 /* Custom folder icons
    Material icons: https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/NAME/TYPE.svg
    Types: baseline, outline, round, sharp, twotone */
-.folderGroup__48112[style="--custom-folder-color: #992d22;"] .folderPreviewWrapper__48112::before {
+.folderGroup_RTMSuZ[style="--custom-folder-color: #992d22;"] .folderPreviewWrapper_RTMSuZ::before {
   -webkit-mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/dashboard/round.svg);
           mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/dashboard/round.svg);
 }
 
-.folderGroup__48112[style="--custom-folder-color: #ad1457;"] .folderPreviewWrapper__48112::before {
+.folderGroup_RTMSuZ[style="--custom-folder-color: #ad1457;"] .folderPreviewWrapper_RTMSuZ::before {
   -webkit-mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/engineering/round.svg);
           mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/engineering/round.svg);
 }
 
-.folderGroup__48112[style="--custom-folder-color: #71368a;"] .folderPreviewWrapper__48112::before {
+.folderGroup_RTMSuZ[style="--custom-folder-color: #71368a;"] .folderPreviewWrapper_RTMSuZ::before {
   -webkit-mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/sports_esports/round.svg);
           mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/sports_esports/round.svg);
 }
 
 /* Guild child wrapper */
-.childWrapper__6e9f8.childWrapperNoHoverBg__6e9f8 {
+.childWrapper_JJ-hgR.childWrapperNoHoverBg_JJ-hgR {
   background-color: hsl(222.857, 6.667%, 15%);
   color: var(--accent-text-color);
 }
@@ -416,23 +416,23 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Account panel */
-.container__37e49 .nameTag__37e49 .text-md\/medium_cf4812,
-.container__37e49 .nameTag__37e49 .text-xs\/medium_cf4812 {
+.container_g6VwXp .nameTag_g6VwXp .text-md\/medium_RAOoio,
+.container_g6VwXp .nameTag_g6VwXp .text-xs\/medium_RAOoio {
   text-overflow: clip !important; /* hide overflow text */
 }
 
-.panels__5e434 {
+.panels_pog62O {
   border-top: none !important;
 }
 
 /* Activity panel */
-.activityPanel__5e434 {
+.activityPanel_pog62O {
   border-bottom: 1px solid var(--sidebar-panel-border) !important;
   position: relative;
   z-index: 2;
 }
 
-.activityPanel__5e434, .panels__5e434:has(.containerRtcOpened__37e49) .wrapper_e131a9 { /* gradient line */
+.activityPanel_pog62O, .panels_pog62O:has(.containerRtcOpened__37e49) .wrapper_9U6LUN { /* gradient line */
   background: transparent !important;
   border-bottom: 1px solid transparent;
   -o-border-image: linear-gradient(to right, transparent 0%, transparent 5%, var(--card-border-color) 5%, var(--card-border-color) 95%, transparent 95%, transparent 100%) 1;
@@ -444,43 +444,43 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* Connection panel */
-.wrapper_e131a9 {
+.wrapper_9U6LUN {
   border-top: none !important; /* override source */
 }
 
-.wrapper_e131a9:not(:empty) {
+.wrapper_9U6LUN:not(:empty) {
   border-bottom: 1px solid var(--sidebar-panel-border);
 }
 
 /* Sidebars - members list, search results, rules, call wrapper */
 /* fix scrollbar in chat having way too much min height */
-.scroller__36d07::-webkit-scrollbar-track {
+.scroller_8AE1Qq::-webkit-scrollbar-track {
   margin: 5px;
 }
 
-.chat_f75fb0:not(:has(.forumPostTitle_f75fb0)) .container_c8ffbb,
-.chat_f75fb0 .membersWrap_c8ffbb,
-.searchResultsWrap_a98f3b,
-.guildSidebar_b962dc,
-.noChat_cb9592 {
+.chat_z_gUBg:not(:has(.forumPostTitle_z_gUBg)) .container_86es0b,
+.chat_z_gUBg .membersWrap_86es0b,
+.searchResultsWrap_QHVbp3,
+.guildSidebar_x3HD6i,
+.noChat_hbKzX7 {
   border-radius: var(--app-card-radius);
   background-color: var(--app-foreground);
   height: calc(100% + 71px) !important;
   max-height: none;
 }
 
-.container__49668,
-.chat_f75fb0:has(.container__0b563) {
+.container_L3EMza,
+.chat_z_gUBg:has(.container_xTP3zy) {
   height: 100% !important;
 }
 
-.container__89463, .container_a592e1 {
+.container_rhYbEd, .container_I4BhVZ {
   border-radius: var(--app-card-radius);
   background-color: var(--app-foreground);
   overflow: hidden;
 }
 
-.searchResultsWrap_a98f3b {
+.searchResultsWrap_QHVbp3 {
   background-color: var(--app-foreground) !important;
 }
 
@@ -488,7 +488,7 @@ li > div:has(a[href="/quest-home"]) {
    USER PROFILE STYLING
    ========================================================================== */
 /* view full profile button styled as emptybutton */
-.inner_c0bea0 > div > .button_a22cb0 {
+.inner_P1YEjQ > div > .button_F7qvhY {
   padding: 0 8px !important;
   background-color: var(--input-background-default) !important;
   border: 1px solid var(--input-color) !important;
@@ -503,38 +503,38 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 /* note margin */
-.profileBody__9c3be userProfileModalSection > div > textarea {
+.profileBody_s3DB6Y userProfileModalSection > div > textarea {
   margin: 5px;
 }
 
 /* Profile - Modal layout */
-.inner_c0bea0 {
+.inner_P1YEjQ {
   padding-block: unset !important;
   padding-inline: unset !important;
 }
 
 /* profile fixes: fullscreen, border etc */
-.layer_bc663c > div > div:has(> div > div > .outer_c0bea0) { /* fullscreen profile popout layout */
+.layer_C_WHpX > div > div:has(> div > div > .outer_P1YEjQ) { /* fullscreen profile popout layout */
   height: 90vh;
   border-radius: var(--card-radius) !important;
 }
 
-.layoutContainer__9c3be > div:not(.outer_c0bea0) {
+.layoutContainer__9c3be > div:not(.outer_P1YEjQ) {
   display: none;
 }
 
-.layer_bc663c > div > div > div:has(.outer_c0bea0), .layer_bc663c:has(.inner_c0bea0) > div > div > div > div, .layer_bc663c .outer_c0bea0 {
+.layer_C_WHpX > div > div > div:has(.outer_P1YEjQ), .layer_C_WHpX:has(.inner_P1YEjQ) > div > div > div > div, .layer_C_WHpX .outer_P1YEjQ {
   height: 100%;
 }
 
-.chat_f75fb0[data-has-border=true] {
+.chat_z_gUBg[data-has-border=true] {
   border-block-start: revert;
 }
-.chat_f75fb0:has(.aside_f58343) {
+.chat_z_gUBg:has(.aside_HbUF2J) {
   max-width: revert;
 }
 
-.aside_f58343 {
+.aside_HbUF2J {
   position: revert;
   height: revert;
   inset-block-start: revert;
@@ -549,7 +549,7 @@ li > div:has(a[href="/quest-home"]) {
   background-color: var(--popout-color) !important;
 }
 
-.aside_f58343 {
+.aside_HbUF2J {
   height: calc(100% + 70px);
   border-radius: var(--card-radius) !important;
   background-color: var(--app-foreground);
@@ -563,22 +563,22 @@ li > div:has(a[href="/quest-home"]) {
   --bg-mod-faint: var(--profile-body-background-color) !important;
 }
 
-aside .outer_c0bea0 { /* profile in sidebar */
+aside .outer_P1YEjQ { /* profile in sidebar */
   border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);
   max-height: none;
 }
 
-.profile__9c3be {
+.profile_s3DB6Y {
   border-radius: var(--card-radius) !important;
 }
 
-.inner_c0bea0 .channelTextArea__74017 {
+.inner_P1YEjQ .channelTextArea_2x8-Qn {
   border-radius: var(--card-radius) !important;
 }
 
 /* Profile - Banner styling */
-.banner__68edb {
+.banner_s9bWOi {
   border-radius: var(--card-radius) !important;
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
@@ -588,26 +588,26 @@ aside .outer_c0bea0 { /* profile in sidebar */
    CHAT & MESSAGING
    ========================================================================== */
 /* Chat page  full screen fullscreen lengthen stretch*/
-.page__5e434 {
+.page_pog62O {
   overflow: hidden;
 }
 
-.chat_f75fb0:not(:has(.form_f75fb0)):not(:has(.callContainer_cb9592)) {
+.chat_z_gUBg:not(:has(.form_z_gUBg)):not(:has(.callContainer_hbKzX7)) {
   height: 99.92% !important;
   max-height: none;
 }
 
 /* Bot tags */
-.botTag__82f07 {
+.botTag_feVUtO {
   background-color: hsl(var(--accent-hsl));
 }
 
-.botText__82f07 {
+.botText_feVUtO {
   color: white;
 }
 
 /* Chat inverted border effect */
-.chatContent_f75fb0::after {
+.chatContent_z_gUBg::after {
   content: "";
   position: absolute;
   width: 3px;
@@ -618,7 +618,7 @@ aside .outer_c0bea0 { /* profile in sidebar */
   transform: translate(0px, 10px);
 }
 
-.chatContent_f75fb0::before {
+.chatContent_z_gUBg::before {
   content: "";
   position: absolute;
   width: 20px;
@@ -626,7 +626,7 @@ aside .outer_c0bea0 { /* profile in sidebar */
   background-color: transparent;
 }
 
-.chatContent_f75fb0::before {
+.chatContent_z_gUBg::before {
   bottom: 0;
   right: 0;
   border-radius: 0 20px 0 0;
@@ -635,26 +635,26 @@ aside .outer_c0bea0 { /* profile in sidebar */
 }
 
 /* Jump to present bar */
-.jumpToPresentBar__0f481 {
+.jumpToPresentBar_j9Vvzj {
   right: 16px;
   margin: 0px;
 }
 
 /* Reply indicator colors */
-.mouse-mode.full-motion .message__5126c .replying__5126c:hover {
+.mouse-mode.full-motion .message_SY_P2T .replying_SY_P2T:hover {
   background-color: hsla(var(--alert-hsl), 0.175);
 }
 
-.replying__5126c {
+.replying_SY_P2T {
   background-color: hsla(var(--alert-hsl), 0.1);
 }
 
-.replying__5126c:before {
+.replying_SY_P2T:before {
   background-color: hsl(var(--alert-hsl));
 }
 
 /* Forum post gradient footer */
-.textContentFooter__9a337 {
+.textContentFooter_x1LvFB {
   background: linear-gradient(0deg, var(--app-foreground), color-mix(in srgb, var(--app-foreground), transparent 3%) 36px, color-mix(in srgb, var(--app-foreground), transparent 60%)) !important;
 }
 
@@ -662,16 +662,16 @@ aside .outer_c0bea0 { /* profile in sidebar */
    BUTTONS & COMPONENTS
    ========================================================================== */
 /* Button filled styling profile */
-.lookFilled__201d5 {
+.lookFilled_hfM7yP {
   --button-background: hsla(0, 0%, 11%, .3);
 }
 
 /* Danger/destructive action colors */
 [data-list-item-id=settings-sidebar___logout_sidebar_item],
 [data-tab-id=DELETE],
-#user-context-block > .label_c1e9c4,
+#user-context-block > .label_M3qk4j,
 #user-context-remove-friend > div,
-.colorDanger_c1e9c4 > div {
+.colorDanger_M3qk4j > div {
   color: hsl(var(--alert-hsl)) !important;
 }
 
@@ -680,7 +680,7 @@ aside .outer_c0bea0 { /* profile in sidebar */
    ========================================================================== */
 /* Tab styling */
 /* search bar input styled instead of button */
-.searchBar_e6b769 > button {
+.searchBar_u88IQl > button {
   padding: 0 8px !important;
   background-color: var(--input-background-default) !important;
   border: 1px solid var(--input-border-default) !important;
@@ -720,12 +720,14 @@ aside .outer_c0bea0 { /* profile in sidebar */
    SPOTIFY CONTROLS (VENCORD PLUGIN)
    ========================================================================== */
 /* bar color */
+#vc-spotify-progress-bar .barFill_p3RiOL,
 #vc-spotify-progress-bar .barFill__4c059,
-#vc-spotify-progress-bar .barFill__4c059 {
+#vc-spotify-progress-bar div[style*="width:"] {
   background-color: #888888;
 }
 
-#vc-spotify-progress-bar .grabber__4c059 {
+#vc-spotify-progress-bar .grabber__4c059,
+#vc-spotify-progress-bar div[style*="left:"] {
   display: none;
 }
 

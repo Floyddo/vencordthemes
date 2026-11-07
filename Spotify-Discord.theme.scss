@@ -968,10 +968,13 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 
 /* bar color */
  #vc-spotify-progress-bar #{ $sliderBarFill},
- #vc-spotify-progress-bar .barFill__4c059 {
+ #vc-spotify-progress-bar .barFill__4c059, 
+  #vc-spotify-progress-bar div[style*="width:"]
+  {
   background-color: #888888;
  }
-#vc-spotify-progress-bar .grabber__4c059 {
+#vc-spotify-progress-bar .grabber__4c059, 
+#vc-spotify-progress-bar div[style*="left:"] {
   display: none;
 }
 #vc-spotify-progress-bar:hover .grabber__4c059 {
