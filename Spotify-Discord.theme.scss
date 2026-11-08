@@ -72,7 +72,8 @@
    IMPORTS
    ========================================================================== */
 
-@use "BetterDiscord/Themes/Material-Discord/src/_classes.scss" as *;
+@use "BetterDiscord/Themes/Material-Discord/src/_classes.scss" as bd;
+@use "datamining_classes.scss" as *;
 @import url(https://capnkitten.github.io/BetterDiscord/Themes/Spotify-Discord/css/source.css);
 
 /* ==========================================================================
@@ -208,17 +209,17 @@
    ========================================================================== */
 
 /* remove wishlist tab */
-#{$discoverHeaderTopBar} > div[data-tab-id="WISHLIST"] {
+#{bd.$discoverHeaderTopBar} > div[data-tab-id="WISHLIST"] {
   display: none;
 }
 
 
 /////Disable in accessibiliity settings
 // /* undo custom name fonts */
-// #{$displayEffectTextShowEffect}#{$displayEffectTextContainer} span {
+// #{bd.$displayEffectTextShowEffect}#{bd.$displayEffectTextContainer} span {
 //   all: unset!important;
 // }
-// #{$displayEffectTextContainer}, #{$displayEffectTextContainer}>span {
+// #{bd.$displayEffectTextContainer}, #{bd.$displayEffectTextContainer}>span {
 //   --app-font: unset!important;
 //   --custom-display-name-styles-main-color: unset!important;
 //   --custom-display-name-styles-light-1-color: unset!important;
@@ -232,15 +233,15 @@
 // }
 
 /* disable custom username gradients only */
-.twoColorGradient_e5de78,
-.threeColorGradient_e5de78,
-.usernameGradient_e5de78,
-.usernameGlow_e5de78,
-.usernameGlowActive_e5de78,
-.convenienceGlowGradient_e5de78,
-.convenienceGlowGradientActive_e5de78,
-.animateGradient_e5de78,
-.gradientDotAnimation_e5de78 {
+#{$twoColorGradient},
+#{$threeColorGradient},
+#{$usernameGradient},
+#{$usernameGlow},
+#{$usernameGlowActive},
+#{$convenienceGlowGradient},
+#{$convenienceGlowGradientActive},
+#{$animateGradient},
+#{$gradientDotAnimation} {
   animation: none!important;
   background: none!important;
   background-image: none!important;
@@ -252,20 +253,20 @@
   color: var(--custom-gradient-color-1)
 }
 
-.usernameGlow_e5de78,
-.usernameGlowActive_e5de78,
-.convenienceGlowGradient_e5de78::after,
-.convenienceGlowGradientActive_e5de78::after {
+#{$usernameGlow},
+#{$usernameGlowActive},
+#{$convenienceGlowGradient}::after,
+#{$convenienceGlowGradientActive}::after {
   display: none!important;
 }
 
-.convenienceGlowGradient_e5de78 {
+#{$convenienceGlowGradient} {
   position: static!important;
   z-index: auto!important;
 }
 /* hide profile frames - and resize the profile back */
 
-#{$userProfileInner} .custom-profile-frame {
+#{bd.$userProfileInner} .custom-profile-frame {
   display: none;
 }
 .custom-profile-frame {
@@ -279,8 +280,11 @@
 #profile-modal-editing-panel {
   display: none;
 }
+#user-profile-editing-panel {
+  display:none;
+}
 @media (min-width: 929px) {
-    .layoutContainer__9c3be.editingPanelExpanded__9c3be { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+        .layoutContainer_s3DB6Y.editingPanelExpanded_s3DB6Y { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
         --custom-modal-v2-width: 962px;
         --custom-modal-v2-max-width: calc(100vw - var(--space-48) * 2);
         --custom-modal-v2-profile-width: min(max(300px, calc(45.5vw - var(--space-48) * 0.91)), 400px);
@@ -289,18 +293,23 @@
 }
 
 @media (min-width: 1169px) {
-    .layoutContainer__9c3be.editingPanelExpanded__9c3be { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+        .layoutContainer_s3DB6Y.editingPanelExpanded_s3DB6Y { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
         --custom-modal-v2-width: 962px;
         --custom-modal-v2-max-width: calc(100vw - var(--space-48) * 2);
         --custom-modal-v2-profile-width: min(max(300px, calc(45.5vw - var(--space-48) * 0.91)), 400px);
         grid-template-columns: 0 1fr;
     }
 }
-
-  /* hide promoted game tag */ 
-#{$activeNowQuestWrapper} {
+/* full screen profile weird top bar zoom in and close button */
+.layoutContainer_s3DB6Y>first-child { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
+
+  /* hide promoted game tag */ 
+#{bd.$activeNowQuestWrapper} {
+  display: none;
+}
+
 /* Hide store, shop, and quest links in friends list */
 li > div:has(a[href="/store"]),
 li > div:has(a[href="/shop"]),
@@ -309,30 +318,30 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 // /* Hide premium profile decorations and effects */
-#{$avatarDecoration}, #{$avatarStatusDecoration} {
+#{$avatarDecoration}, #{bd.$avatarStatusDecoration} {
   display: none;
 }
 
 
 /* Hide premium nameplate decorations */
-#{$memberNameplate} {
+#{bd.$memberNameplate} {
   display: none;
 }
-#{ $memberNameplated }, #{$privateChannelDm} {
-    #{ $memberGradientContainer } {
+#{bd.$memberNameplated}, #{bd.$privateChannelDm} {
+    #{bd.$memberGradientContainer} {
         background: none !important;
     }
 
-    #{ $memberVideoContainer } {
+    #{$videoContainer} {
         display: none;
     }
 }
 
 /* Hide profile effects */
-#{$userProfileEffects}, .profileEffects__0dd08 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+#{bd.$userProfileEffects}, #{$profileEffects} { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
-#{$memberNameplated}>.container_df39b2 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+#{bd.$memberNameplated}>.container_df39b2 { /* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
   display: none;
 }
 
@@ -341,32 +350,17 @@ li > div:has(a[href="/quest-home"]) {
    ========================================================================== */
   
 // /* hide ignored users */
-// #{$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
+// #{bd.$messageGroupStart}:has(.blockedSystemMessage__7a70a) {/* REQUIRES MANUAL UPDATING: Discord class for profile effects, may break with updates */
 //   display: none;
 // }
 
 // /* remove close button full screen profile */
-// #{$userProfileInner} > div > #{$buttonV2} {
-//   display: none;
-// } this is broken idk why
+
 
 /* remove paid/slop badges */
-#{$badgeListContainer} > :not(.vc-platform-indicator) {
+#{bd.$badgeListContainer} > :not(.vc-platform-indicator) {
     display: none;
 }
-//OLD
-// #{$badgeListContainer} {
-//   > div:has(>div> a[href="https://discord.com/settings/premium"]), /* remove nitro badge */
-//   > a[href="https://discord.com/settings/premium"], /* remove boosting badge from profile */ 
-//   > a[href="https://discord.com/discovery/quests"], /* remove quest completed badge */
-//   // > div >  a[aria-label="Collected the Orb Profile Badge"], /* remove quests orb badge, this might not work for different locales */
-//   >div:has(>a>img[src="https://cdn.discordapp.com/badge-icons/83d8a1eb09a8d64e59233eec5d4d5c2d.png"]), /* remove orb guaranteed to work */
-//   >a[aria-label^="Gifting"], // remove gifting badge (starting aria)
-//   >a[href="https://discord.com/settings/guild-boosting"] /* remove boosting */
-//   {
-//     display: none;
-//   }
-// }
 
 //quest popout
 .wrapper__0bd12 {
@@ -374,130 +368,59 @@ li > div:has(a[href="/quest-home"]) {
 }
 
 // quests icon next to game playing
-.questsIcon_c9d15c {
+#{$questsIcon} {
   display: none;
 }
 
 // boosting icon in tab
-.premiumIcon__5d473 {
+#{$premiumIcon} {
   display: none;
 }
 
 /* Remove laggy backdrop blur from full screen user profile*/
-#{$userProfileModalBackgroundImage}::after {
-backdrop-filter: none;
-filter: blur(3px);
+#{bd.$userProfileModalBackgroundImage}::after {
+  backdrop-filter: none;
+  filter: blur(3px);
 }
 
 /* textarea buttons */
- #{ $channelTextAreaButtonsContainer }>  #{ $channelTextAreaButton}#{ $channelTextAreaButtonInner}, // Current nitro gift button in text area
- .container__5287f, /* Requires manual updating: A/B nitro gift button in text area, may break with updates */
-#{ $channelAppLauncherButtonContainer} {
+ #{bd.$channelTextAreaButtonsContainer}>  #{bd.$channelTextAreaButton}#{bd.$channelTextAreaButtonInner}, // Current nitro gift button in text area
+ .container_ejC3ZL, /* Requires manual updating: A/B nitro gift button in text area, may break with updates */
+#{bd.$channelAppLauncherButtonContainer} {
   display: none;
 }
 
 /* hides clan tags */
-#{$guildChatChipletContainerInner}  {
+#{$chipletContainerInner}  {
   display: none!important;
 }
 
 /* Remove emoijs in quickbar message reactions */
-#{ $messageButtonWrapper } > span:has(#{ $embedEmoji }) { 
+#{bd.$messageButtonWrapper} > span:has(#{bd.$embedEmoji}) { 
   display: none;
 }
 
 /* Remove separator in message button wrapper */
-#{ $messageButtonWrapper } > #{ $messageButtonSeparator } {
+#{bd.$messageButtonWrapper} > #{bd.$messageButtonSeparator} {
   display: none;
 }
-
-
-
-
-
-////// covered in DECOMMERCIALIZE
-// /* Quest elements */
-// %panels %questPanelMask,
-// %privateChannelsHeader >button,
-// ._553bf02027ac2419-wrapper, /* quests tab in list */
-// %activeNowQuestWrapper /* friend playing quest game popup */ {
-//   display: none;
-// }
-
-// /* Nameplate elements */
-// ._4bbc6dc06e75ad52-container {
-//   background: linear-gradient(90deg,rgba(42, 123, 155, 0) 0%, rgba(237, 221, 83, 0) 100%) !important;
-// }
-
-// ._4bbc6dc06e75ad52-videoContainer {
-//   mask-image: none !important;
-// }
-
-// ._4bbc6dc06e75ad52-img {
-//   display: none;
-// }
-
-// /* Username gradient glow effects */
-// .e5de7811b2777bfa-threeColorGradient,
-// .e5de7811b2777bfa-twoColorGradient {
-//   &.e5de7811b2777bfa-usernameGradient {
-//     color: color-mix(in lab, var(--custom-gradient-color-1), var(--custom-gradient-color-2));
-//     background: none;
-//     -webkit-text-fill-color: initial;
-//   }
-
-//   &::after,
-//   &._703b91fc872193e8-nameGlow {
-//       display: none;
-//   }
-// }
-
-// /* Clan (guild) tags */
-// [class*="chipletContainerInner_"]:has([src*="/clan-badges/"]) { 
-//   display: none; 
-// }
-
-
-// /* Chat bar elements */
-// %channelTextAreaButtonsContainer>%button, /* nitro gift button */
-// %messageHoverBarButton:has(.emoji),
-// .separator_f84418 {
-//   display: none;
-// }
-
-// /* Store & shop links */
-// div:has(>li > div >a[href="/store"]),
-// li a[href="/store"],
-// div li a[href="/store"], /* home > nitro */
-// div:has(>li > div > a[href="/shop"]),
-// li a[href="/shop"],
-// div li a[href="/shop"] /* home > shop */ {
-//   display: none;
-// }
-
-// /* Premium & quest badges */
-// %badgeListContainer>div:has(>a[href="https://discord.com/settings/premium"]),
-// %badgeListContainer>div:has(>a[href="https://discord.com/discovery/quests"]) {
-//   display: none;
-// }
-
 
 /* ==========================================================================
    SERVER/GUILD STYLING
    ========================================================================== */
 
 /* Guild folder icons */
-#{ $guildFolderPreview } {
+#{$folderPreview} {
   display: none;
 }
 
-#{ $guildFolderPreviewWrapper } {
+#{$folderPreviewWrapper} {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-#{ $guildFolderPreviewWrapper }::before {
+#{$folderPreviewWrapper}::before {
   position: absolute;
   content: " ";
   width: 24px;
@@ -510,7 +433,7 @@ filter: blur(3px);
   transform: scale(1.3);
 }
 
-#{ $themeLight } #{ $guildFolderPreviewWrapper } {
+#{bd.$themeLight} #{$folderPreviewWrapper} {
   filter: brightness(0.5) saturate(4);
 }
 
@@ -518,27 +441,27 @@ filter: blur(3px);
    Material icons: https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/NAME/TYPE.svg
    Types: baseline, outline, round, sharp, twotone */
 
-#{ $guildFolderWrapper }[style='--custom-folder-color: #992d22;'] /* Apps folder */ { 
-  #{ $guildFolderPreviewWrapper }::before {
+#{$folderGroup}[style='--custom-folder-color: #992d22;'] /* Apps folder */ { 
+  #{$folderPreviewWrapper}::before {
     mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/dashboard/round.svg);
   }
 }
 
-#{ $guildFolderWrapper }[style='--custom-folder-color: #ad1457;'] /* My servers folder */ { 
-  #{ $guildFolderPreviewWrapper }::before {
+#{$folderGroup}[style='--custom-folder-color: #ad1457;'] /* My servers folder */ { 
+  #{$folderPreviewWrapper}::before {
     mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/engineering/round.svg);
   }
 }
 
-#{ $guildFolderWrapper }[style='--custom-folder-color: #71368a;'] /* Roblox folder */ { 
-  #{ $guildFolderPreviewWrapper }::before {
+#{$folderGroup}[style='--custom-folder-color: #71368a;'] /* Roblox folder */ { 
+  #{$folderPreviewWrapper}::before {
     mask-image: url(https://raw.githubusercontent.com/cloudblue/material-svg/refs/heads/main/icons/google/sports_esports/round.svg); 
   }
 }
 
 /* Guild child wrapper */
-#{ $guildChildWrapper } {
-  &#{ $guildChildWrapperNoHoverBg } {
+#{bd.$guildChildWrapper} {
+  &#{bd.$guildChildWrapperNoHoverBg} {
     background-color: hsl(222.857 calc(1*6.667%) 15%);
     color: var(--accent-text-color);
   }
@@ -550,50 +473,50 @@ filter: blur(3px);
    ========================================================================== */
 
 /* call timer next to channel name */
-.lineClamp1__4bd52 {
+#{$lineClamp1} {
     display: flex;
     gap: 4px;
 }
 
-.lineClamp1__4bd52 p {
+#{$lineClamp1} p {
     display: inline;
     margin: 0;
 }
 
-.lineClamp1__4bd52 p::before {
+#{$lineClamp1} p::before {
     content: "- ";
 }
 
 /* Account panel */
-#{ $accountPanel } {
-  #{ $accountPanelNameTag } {
-    #{ $textMdMedium },
-    #{ $textXsMedium } {
+#{bd.$accountPanel} {
+  #{$nameTag} {
+    #{bd.$textMdMedium},
+    #{bd.$textXsMedium} {
       text-overflow: clip!important; /* hide overflow text */
     }
   }
 }
 
-#{ $panels } {
+.#{panels} {
   border-top: none!important;
 }
 
-// #{ $panels } {
-//   #{ $activityPanel },
-//   #{ $accountPanel } {
+// .#{panels} {
+//   .#{activityPanel},
+//   #{bd.$accountPanel} {
 //     background-color: hsla(0,0%,7%, 0.5)!important; /* experimental */
 //   }
 // }
 
 /* Activity panel */
-#{ $activityPanel } {
+.#{activityPanel} {
   border-bottom: 1px solid var(--sidebar-panel-border) !important;
   position: relative;
   z-index: 2;
 }
 
 
-#{ $activityPanel }, #{$panels}:has(.containerRtcOpened__37e49) #{$connectionPanelWrapper} { /* gradient line */
+.#{activityPanel}, .#{panels}:has(.containerRtcOpened__37e49) #{bd.$connectionPanelWrapper} { /* gradient line */
   background: transparent !important;
   border-bottom: 1px solid transparent;
   border-image: linear-gradient(to right,
@@ -616,11 +539,11 @@ filter: blur(3px);
 }
 
 /* Connection panel */
-#{ $connectionPanelWrapper } {
+#{bd.$connectionPanelWrapper} {
   border-top: none !important; /* override source */
 }
 
-#{ $connectionPanelWrapper } {
+#{bd.$connectionPanelWrapper} {
   &:not(:empty) {
     border-bottom: 1px solid var(--sidebar-panel-border);
   }
@@ -630,15 +553,15 @@ filter: blur(3px);
 /* Sidebars - members list, search results, rules, call wrapper */
 
 /* fix scrollbar in chat having way too much min height */
-#{ $messagesScroller }::-webkit-scrollbar-track {
+#{bd.$messagesScroller}::-webkit-scrollbar-track {
     margin: 5px;
 }
 
-#{ $chat }:not(:has(#{ $threadsPopoutPostTitle })) #{ $membersContainer },
-#{ $chat } #{ $membersWrap },
-#{ $searchResultsWrap },
-#{ $rulesGuildSidebar },
-#{ $callWrapperNoChat }
+#{bd.$chat}:not(:has(#{bd.$threadsPopoutPostTitle})) #{bd.$membersContainer},
+#{bd.$chat} .#{membersWrap},
+#{bd.$searchResultsWrap},
+#{bd.$rulesGuildSidebar},
+#{bd.$callWrapperNoChat}
  { 
   border-radius: var(--app-card-radius);
   background-color: var(--app-foreground);
@@ -646,18 +569,18 @@ filter: blur(3px);
   max-height: none;
 }
 
-#{ $serverShopContainer },
-#{ $chat }:has(#{ $channelsAndRolesContainer }){
+#{bd.$serverShopContainer},
+#{bd.$chat}:has(#{bd.$channelsAndRolesContainer}){
   height: 100%!important;
 }
 
-#{ $serverBoostContainer }, #{ $discoverContentContainer } {
+#{bd.$serverBoostContainer}, #{bd.$discoverContentContainer} {
   border-radius: var(--app-card-radius);
   background-color: var(--app-foreground);
   overflow: hidden;
 }
 
-#{ $searchResultsWrap } {
+#{bd.$searchResultsWrap} {
   background-color: var(--app-foreground)!important;
 }
 
@@ -668,7 +591,7 @@ filter: blur(3px);
 
 
    /* view full profile button styled as emptybutton */
-#{$userProfileInner} > div > #{$buttonV2} {
+#{bd.$userProfileInner} > div > #{bd.$buttonV2} {
     padding: 0 8px!important;
   background-color: var(--input-background-default) !important;
   border: 1px solid var(--input-color) !important;
@@ -683,61 +606,61 @@ filter: blur(3px);
 } 
 
    /* note margin */
-#{$userProfileModalV2ProfileBody} #{userProfileModalSection} > div > textarea {
+#{bd.$userProfileModalV2ProfileBody} #{userProfileModalSection} > div > textarea {
   margin: 5px;
 }
 
 
 /* Profile - Modal layout */
-#{ $userProfileInner } {
+#{bd.$userProfileInner} {
   padding-block: unset!important;
   padding-inline: unset!important;
 }
 
 /* profile fixes: fullscreen, border etc */
-#{$popoutLayerAlt } > div > div:has(>div>div>#{$userProfileOuter}) { /* fullscreen profile popout layout */
+#{bd.$popoutLayerAlt} > div > div:has(>div>div>#{$outer}) { /* fullscreen profile popout layout */
     height: 90vh;
     border-radius: var(--card-radius) !important;
 }
-.layoutContainer__9c3be  > div:not(#{$userProfileOuter}) {
+.layoutContainer__9c3be  > div:not(#{$outer}) {
   display: none;
 }
 
-#{$popoutLayerAlt } > div > div > div:has(#{$userProfileOuter}), #{$popoutLayerAlt}:has(#{$userProfileInner}) > div > div> div >div,  #{$popoutLayerAlt} #{$userProfileOuter}{
+#{bd.$popoutLayerAlt} > div > div > div:has(#{$outer}), #{bd.$popoutLayerAlt}:has(#{bd.$userProfileInner}) > div > div> div >div,  #{bd.$popoutLayerAlt} #{$outer}{
   height: 100%;
 }
 
 // dm aside styling - reverts commit 3f09867
-    #{ $chat } {
+    #{bd.$chat} {
         &[data-has-border="true"] {
             border-block-start: revert;
         }
 
-        &:has(#{ $dmProfileAside }) {
+        &:has(#{bd.$dmProfileAside}) {
             max-width: revert;
         }
     }
 
-    #{ $dmProfileAside } {
+    #{bd.$dmProfileAside} {
         position: revert;
         height: revert;
         inset-block-start: revert;
         inset-inline-end: revert;
     }
 
-    #{ $userProfileOuterThemed } {
-        &#{ $dmProfilePanel }#{ $dmProfilePanelRedesign } {
+    #{bd.$userProfileOuterThemed} {
+        &#{bd.$dmProfilePanel}#{bd.$dmProfilePanelRedesign} {
             border-radius: var(--popout-radius);
         }
     }
     // end revert
 
-    #{ $dmProfilePanel } {
-        &:not(#{ $userProfileOuterThemed }) {
+    #{bd.$dmProfilePanel} {
+        &:not(#{bd.$userProfileOuterThemed}) {
             background-color: var(--popout-color) !important;
         }
     }
-    #{$dmProfileAside } {
+    #{bd.$dmProfileAside} {
         height: calc(100% + 70px);
         border-radius: var(--card-radius) !important;
         background-color: var(--app-foreground);
@@ -753,21 +676,21 @@ filter: blur(3px);
     
 //
 
-aside #{ $userProfileOuter } { /* profile in sidebar */
+aside #{$outer} { /* profile in sidebar */
   border-radius: var(--card-radius) !important;
   height: calc(100% + 70px);
   max-height: none;
 }
 
-#{$userProfileModalV2Profile} {
+#{bd.$userProfileModalV2Profile} {
   border-radius: var(--card-radius) !important;
 }
-#{$userProfileInner}  #{$channelTextArea}{
+#{bd.$userProfileInner}  #{bd.$channelTextArea}{
   border-radius: var(--card-radius)!important;
 }
 
 /* Profile - Banner styling */
-#{ $userProfileBanner }  {
+#{bd.$userProfileBanner}  {
   border-radius: var(--card-radius) !important;
   -webkit-mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
   mask-image: linear-gradient(to bottom, black 0%, transparent 100%);
@@ -778,11 +701,11 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
    ========================================================================== */
 
 /* Chat page  full screen fullscreen lengthen stretch*/
-#{ $chatPage } {
+#{$page} {
   overflow: hidden;
 }
 
-#{ $chat }:not(:has(#{$chatForm})):not(:has(#{ $callContainer })) {
+#{bd.$chat}:not(:has(#{bd.$chatForm})):not(:has(#{bd.$callContainer})) {
   height: calc(99.92%)!important;
   max-height: none;
 }
@@ -790,34 +713,34 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 
 // LEGACY CODE
 //
-// #{ $chat }:has(#{ $threadsPopoutPostTitle }), /* forum post sizing */
-// #{ $chat }:has(#{ $forumContainer }) {
+// #{bd.$chat}:has(#{bd.$threadsPopoutPostTitle}), /* forum post sizing */
+// #{bd.$chat}:has(#{bd.$forumContainer}) {
 //   height: calc(99.92%)!important;
 //   border-radius: 10px;
 //   max-height: none;
 // }
 
-// #{ $chatPage }:has(#{ $callWrapperNoChat }) { /* call wrapper sizing */
+// #{$page}:has(#{bd.$callWrapperNoChat}) { /* call wrapper sizing */
 //   height: calc(100% + 80px)!important;
 //   max-height: none;
 // }
 
-// #{ $chat }:has(#{ $callContainer }) {
+// #{bd.$chat}:has(#{bd.$callContainer}) {
 //   height: inherit!important;
 //   max-height: inherit;
 // }
 
 /* Bot tags */
-#{ $botTag } {
+#{botTag}, #{bd.$botTag} {
   background-color: hsl(var(--accent-hsl));
 }
 
-#{ $botText } {
+#{botText} {
   color: white;
 }
 
 /* Chat inverted border effect */
-#{ $chatContent } {
+#{bd.$chatContent} {
   &::after {
     content: "";
     position: absolute;
@@ -830,7 +753,7 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
   }
 }
 
-#{ $chatContent } {
+#{bd.$chatContent} {
   &::before {
     content: "";
     position: absolute;
@@ -840,7 +763,7 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
   }
 }
 
-#{ $chatContent } {
+#{bd.$chatContent} {
   &::before {
     bottom: 0;
     right: 0;
@@ -851,26 +774,26 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 }
 
 /* Jump to present bar */
-#{ $jumpToPresentBar } {
+.#{jumpToPresentBar} {
   right: 16px;
   margin: 0px;
 }
 
 /* Reply indicator colors */
-#{ $mouseModeFullMotion } #{ $message } #{ $replyingToIndicator }:hover {
+#{bd.$mouseModeFullMotion} #{bd.$message} #{bd.$replyingToIndicator}:hover {
   background-color: hsla(var(--alert-hsl), 0.175);
 }
 
-#{ $replyingToIndicator } {
+#{bd.$replyingToIndicator} {
   background-color: hsla(var(--alert-hsl), 0.1);
 }
 
-#{ $replyingToIndicator }:before {
+#{bd.$replyingToIndicator}:before {
   background-color: hsl(var(--alert-hsl));
 }
 
 /* Forum post gradient footer */
-#{ $postTextContentFooter } {
+#{bd.$postTextContentFooter} {
   background: linear-gradient(0deg,
       var(--app-foreground),
       color-mix(in srgb, var(--app-foreground), transparent 3%) 36px,
@@ -883,16 +806,16 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 
 
 /* Button filled styling profile */
-#{ $buttonFilled } {
+#{bd.$buttonFilled} {
   --button-background: hsla(0, 0%, 11%, .3);
 }
 
 /* Danger/destructive action colors */
 [data-list-item-id="settings-sidebar___logout_sidebar_item"], /* logout  user settings*/
 [data-tab-id="DELETE"],                                       /* delete server */
-#user-context-block>#{ $menuPopoutLabel },                    /* block user */
+#user-context-block>#{bd.$menuPopoutLabel},                    /* block user */
 #user-context-remove-friend > div,                            /* remove friend */
-#{ $menuPopoutColorDanger } > div                             /* generic danger color */ 
+#{bd.$menuPopoutColorDanger} > div                             /* generic danger color */ 
 {
   color: hsl(var(--alert-hsl)) !important;
 }
@@ -901,20 +824,16 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 /* ==========================================================================
    NAVIGATION & TABS
    ========================================================================== */
+/* profile menu orbs */
+#{$menuOverlay} #{$menuItem}:last-child, //orbs
+#{$menuOverlay} #{$menuItem}:nth-last-child(2)::after // seperator
+{
+  display:none;
+}
 
-/* Tab styling */
-// #{ $tabBarItemSelected },
-// #{ $guildSettingsRolesTabBarItem }:hover {
-//   border-radius: 0px !important;
-// }
-
-// #{ $guildSettingsRolesTabBarItem }>#{ $textSmNormal } {
-//   position: relative;
-//   top: -4px;
-// }
 
 /* search bar input styled instead of button */
-#{ $privateChannelsSearchBar } > button {
+#{bd.$privateChannelsSearchBar} > button {
   padding: 0 8px!important;
   background-color: var(--input-background-default) !important;
   border: 1px solid var(--input-border-default) !important;
@@ -967,7 +886,7 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
    ========================================================================== */
 
 /* bar color */
- #vc-spotify-progress-bar #{ $sliderBarFill},
+ #vc-spotify-progress-bar #{$barFill},
  #vc-spotify-progress-bar .barFill__4c059, 
   #vc-spotify-progress-bar div[style*="width:"]
   {
@@ -1089,13 +1008,13 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 //   top: -64px;
 // }
 
-// #{$panels}:has(#vc-spotify-player) #{$accountPanel}, #{$panels}:has(#vc-spotify-player) {
+// .#{panels}:has(#vc-spotify-player) #{bd.$accountPanel}, .#{panels}:has(#vc-spotify-player) {
 //   background: transparent!important;
 // }
 
 
 
-// #{$panels}:has(#vc-spotify-player) #{$accountPanel} {
+// .#{panels}:has(#vc-spotify-player) #{bd.$accountPanel} {
 //   border-bottom: 1px solid transparent;
 //   border-image: linear-gradient(to right,
 //       transparent 0%,
@@ -1116,7 +1035,7 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 //   border-right: 0;
 //       border-radius: 0px!important;
 // }
-// #{$panels}:has(#vc-spotify-player):has(.containerRtcOpened__37e49) #{$connectionPanelWrapper} {
+// .#{panels}:has(#vc-spotify-player):has(.containerRtcOpened__37e49) #{bd.$connectionPanelWrapper} {
 //   border-bottom: 1px solid transparent;
 //   border-image: linear-gradient(to right,
 //       transparent 0%,
@@ -1137,11 +1056,11 @@ aside #{ $userProfileOuter } { /* profile in sidebar */
 //   border-right: 0;
 // }
 
-// #{$panels}:has(#vc-spotify-player) {
+// .#{panels}:has(#vc-spotify-player) {
 //   --card-border-color: hsla(0, 0%, 67%, .2)!important;
 // }
 
-// #{$panels}:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
+// .#{panels}:has(.containerRtcOpened__37e49) #vc-spotify-player::before {
 //   height: calc(200% + 104px);
 //   top: -168px;
 //   filter: blur(3px) opacity(0.6);

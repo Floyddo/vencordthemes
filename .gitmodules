@@ -1,3 +1,6 @@
 [submodule "BetterDiscord"]
 	path = BetterDiscord
 	url = https://github.com/CapnKitten/BetterDiscord.git
+[submodule "discord-datamining"]
+	path = discord-datamining
+	url = https://github.com/xhyrom/discord-datamining.git
